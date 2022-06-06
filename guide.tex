@@ -1,0 +1,143 @@
+\documentclass{extbook}
+
+\usepackage{manfnt}
+
+\title{Bruh}
+\author{Paul Sutton (\texttt{zleap}) and Andrew Yu}
+
+\setlength\parindent{2.3\parindent}
+
+\makeatletter
+% Dangerous Bend - Please only use this when there are two lines of text in the dangerous paragraph!
+\def\hang{\hangindent \parindent}
+\def\d@nger{\medbreak\begingroup\clubpenalty=10000
+  \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
+    \hbox to0pt{\hskip-\hangindent\dbend\hfill}\normalsize}
+\outer\def\danger{\d@nger}
+\def\dd@nger{\medbreak\begingroup\clubpenalty=10000
+  \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
+    \hbox to0pt{\hskip-\hangindent\dbend\kern1pt\dbend\hfill}\normalsize}
+\outer\def\ddanger{\dd@nger}
+\def\enddanger{\endgraf\endgroup}
+
+\newcommand\ph[1]{\texttt{\textit{#1}}}
+\makeatother
+
+\begin{document}
+\maketitle
+
+\frontmatter
+\chapter{Preface}
+
+Several people at Code Club / STEM Group have expressed an interest in learning about cybersecurity and ethical hacking.
+
+As this is a huge subject area, I am going to start off with a series of posts to take this back to basics, starting off with learning about the command line in modern UNIX-like operating systems and associated commands using the \texttt{bash} shell.
+
+Although most commands and tips will work on all UNIX-like operating systems, some less common usages and options of these utilities may be absent on some systems.  This series focuses on usage of the GNU core utilities with occasional commands from util-linux, as GNU/Linux systems are the most common Free Software setups.  Users of other UNIX-like operating systems may consult their system manual for specifics into a command.
+
+This guide is intended for beginners, as some sort of a semi-gental introduction.  However, people with experience already may also find this guide helpful, and as such this guide will cover some 'more advanced' topics.  In order to make it possible for many types of readers to read this guide effectively, the  sign
+$$\vbox{\hbox{\dbend}\vskip 11pt}$$
+is put at the beginning of some paragraphs to indicate a "hard level".  If you are new to GNU/Linux systems and it's your first few reads, it is advised to skip these parts.  (Yes, this is the ``{dangerous bend}'' sign that Donald Knuth uses.)
+
+\tableofcontents
+
+\mainmatter
+\chapter{Preparing the Environment}
+
+$$\vcenter{\hbox{\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend\kern1pt\dbend}\vskip 11pt}$$
+This chapter needs to be rewritten.
+
+Firstly, we need access to a GNU/Linux system, there are numerous options here:
+
+\begin{itemize}
+	\item Install GNU/Linux on your computer;
+	\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as Raspberry Pis and BeagleBone boards;
+	\item Install GNU/Linux in a virtual machine;
+	\item Use a compatibility layer;
+	\item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
+	\item Use a browser-based emulator such as JS Linux.
+	\item \textit{et cetera}.
+\end{itemize}
+
+
+-   JS Linux
+
+So as this screen says, you can create an account. If you go ahead and
+do this here
+
+Note: Once account is created, give the system time to set everything up
+(otherwise you get an error about unauthorised user) you can login to
+this via the website using the login button.
+
+Please note: As there are a huge number of videos on this, already on
+platforms such as Youtube. I intend to use these as a basis for this
+series. However I would like to be able to expand further, as we go
+providing a summary of what is covered etc.
+
+\chapter{Shell Basics}
+
+We will be mainly working in the \texttt{bash} shell in this series.  GNU \texttt{bash} is the most common shell in modern GNU/Linux systems, which is the primary focus of this series.
+
+A \textit{shell} is, in general, the program that you interact with your computer with.  When used in a more specific context it refers to a command-line shell that users type commands to.  The shell usually does some interpretation on the user input and passes these options launching a program, or they modify the shell's internal environment.
+
+Many users, mostly novice ones, are afraid of command-line interfaces as the sterotypical UNIX command-line is very terse.  In rare fields this is still true, but things are generally better than in the old days.  For example, visual text editors are widespread among users of bitmap displays and terse teletype-oriented ones like \texttt{ed} are fading away.
+
+Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly.  It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting.  In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
+
+Now, go ahead and open up a shell.  On graphical systems, look for a program called ``Terminal'' or similar.  If you see something similar to ``\verb|user@host:~\$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
+
+\section{Interpretting the Prompt}
+
+When you see something like ``\verb|user@host:~\$|'' or ``\verb|[user@host ~] $|'', the shell is waiting for you to type a command.
+
+The default prompt on most systems consists of four parts:
+\begin{enumerate}
+	\item Your username;
+	\item Your computer's hostname;
+	\item Your current working directory;
+	\item An actual prompt, which is ``\verb|$|'' for normal users and ``\verb|#|'' for root, the superuser.
+\end{enumerate}
+
+\danger{The ``\verb|#|'' prompt actually signifies a UID of \verb|0|.  If you have a setup where a user that is not ``\verb|root|'' has a UID of \verb|0| (and in this case such a user also has escalated privileges, because it's the UID rather than the username that matters, though most programs are not designed to work like this and can cause issues), its default prompt would also be ``\verb|#|''.}
+
+Just know that such a prompt means that ``the last command (if any) has finished and the shell is waiting for a command''.
+
+\section{Reading the Manual}
+
+The system manual is a good resource for almost any command.  To access the system manual, you may use the \verb|man| command.
+
+Now try it!  Type \verb|man| and press the Enter/Return key on your keyboard.
+\begin{verbatim}
+user@host:~$ man
+What manual page do you want?
+For example, try 'man man'.
+user@host:~$ 
+\end{verbatim}
+
+It looks like that the computer is telling you that \verb|man| doesn't know what manual page to look up \ldots You should think of some keyword to tell \verb|man| to look up as \verb|man| allows you to view specific pages in the system manual.  Usually, the entrys' names are the name of the program, system call names, standard library function names, file formats (specifically filenames), etc.  They are divided into a few sections, which you should read more about with \verb|man man|, i.e. asking the system manual about the manual utility itself.  It is wise use the system manual for the command in interest before asking for support---because many times the manual solves your problems, and people don't like repeating a documented solution all the time, hense the ``Read the F* Manual'' ``meme'' spreading around.
+
+When you encounter something that you want to do but you're not sure which command to use, the \verb|apropos| command is useful.  \verb|apropos| searches the manual database's page names and summary lines for your search term.  For example, if you're looking for a utility to print a file (which is usually \verb|lpr| or \verb|lp|, by the way), you could run \verb|apropos print|, and you'll be presented with a list of related manual entries (though do note how the term ``print'' is used for ``output text onto the screen'' besides ``tell the printer to put ink (or powder) onto paper'' for historical reasons).  Since you're looking for a \emph{command} to print, you'd generally want to look in section~1 of the manual (those marked with ``\verb|(1)|'').
+
+Sometimes, you are not looking for the command of an external program, but rather a shell builtin, such as ``\verb|cd|''.  In this case, you should use the ``\verb|help|'' command instead of ``\verb|man|''.
+
+\danger{You may have encountered the ``\verb|info|'' command as a system manual command.  That is part of the GNU \TeX info manual system, not the traditional UNIX manual system.  If you are looking for the manual of GNU utilities, such as ``\verb|bash|'', the \TeX info manuals will be more comprehensive than the manpages, and will generally include more examples and friendly information than what manpages will tell you.  However, not many programs outside of GNU utilities have \TeX info manuals.}
+
+\section{File Operations}
+
+Your UNIX-like operating system has a directory structure, and files are the center of UNIX-like operating systems.  Therefore, learning how to navigate the filesystem and handle files is important.
+
+\subsection{Working Directory}
+
+In any process, there is a \textit{current working directory}.  Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory.  At your shell prompt, you can use the ``\verb|pwd|'' command to know your current working directory.  This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
+
+You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''.  That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
+
+\subsection{Listing Files}
+
+To list the files and directories of a given directory, use ``\texttt{ls \ph{directory}}''.  This lists all the items inside \ph{directory}.  If \ph{directory} is unspecified, it lists the current working directory by default.
+
+By default, \verb|ls| does not list hidden files, i.e. files whose filename beings with a dot (``\verb|.|'').  If you pass the ``\verb|-a|`` option to it, hidden files are now listed.  Note that (``\verb|.|'') and (``\verb|..|'') as independent filenames mean ``current directory'' and ``parent directory'' respectively.
+
+By default, \verb|ls| only lists the filenames of the files.  You may want more information.  To get more information, you may pass the ``\verb|-l|'' option, which lets \verb|ls| display extra information like filesystem permissions, file sizes (default unit is bytes, use ``\verb|-h|'' for adaptive units), modification dates, \textit{et cetera}.
+
+\end{document}
