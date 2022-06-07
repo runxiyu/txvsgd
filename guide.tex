@@ -154,6 +154,8 @@ To create a file, you can use the ``\verb|touch|'', in this case ``\verb|touch f
 
 To work with longer files, you can use editors such as ``\verb|nano|'' can also be used so ``\verb|nano file.txt|'' will either open an existing file or create a new file with that file name.   You can then edit the file contents.
 
-You can also create files by directing the output of one command in to another.  For example, we have previosuly discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called filelist.txt
+You can also create files by directing the output of one command in to another.  For example, we have previosuly discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''.  Note that this truncates (i.e. clear) filelist.txt before redirecting the stream.  If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
+
+\danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operatings should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
 
 \end{document}
