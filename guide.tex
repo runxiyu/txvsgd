@@ -73,6 +73,18 @@ You could also join or help setup a local group such as
 \item CoderDojo ( https://coderdojo.com/ )
 \end{itemize}
 
+\chapter{Getting support with this series}
+
+You can get some help via IRC (Internet Relay Chat) myself (zleap) Ron (noisytoot), AnndrewYu (Andrew) all hang out on IRC.  There are several ways to connect to this via a client. it is probably easier, at least in the first instance to use a web based interface. 
+
+\begin{enumerate}
+\item go to https://libera.chat/
+\item Click connect -> Webchat
+\item Enter a nickname
+\item In Channel enter #phillw
+\item Click start
+\end{enumerate}
+
 
 \chapter{Shell Basics}
 
@@ -233,9 +245,11 @@ System administration is important.  It helps you monitor users, monitor resourc
 ``\verb|su|'' - Drop to super user - Maintain current user path*
 ``\verb|su -|'' - Drop to super use,  using the root users path* 
 ``\verb|sudo|'' - suoer user do,  drop to root to just run one command.
+``\verb|reboot|'' - restarts the system
 \end{itemize}
 
-\subsection{The Path Environment}
+
+\subsection{*The Path Environment}
  In the previous subsection I mentioned the ``\verb|su|'' and ``\verb|su -|'' lets have a quick look at how the path environment compares,  we can view the current path with ``\verb|echo $PATH|''
 \begin{itemize}
 \item This is the user path /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
@@ -245,6 +259,10 @@ System administration is important.  It helps you monitor users, monitor resourc
 \end{itemize}
 
 The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user. 
+
+\subsection{Restarting an unresponsive system}
+
+This may also be useful - http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/
 
 \subsection{Videos}
 
