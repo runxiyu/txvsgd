@@ -159,6 +159,24 @@ You can also create files by directing the output of one command in to another. 
 \danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operatings should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
 
 \subsection{File Permissions}
+
+File permissions are an important security feature in any Unix type envirionment.  Files can either be Read, Write or Executable (e.g a shell script).  Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.  
+
+The two main commands that are important here are
+
+``\verb|chmod|'' - Changes the file permission, to determine what can be done with it. 
+``\verb|chown|'' - Changes the file owner
+
+\begin{table}[h]
+\begin{tabular}{|ccc|ccc|ccc|}
+\hline
+\multicolumn{3}{|c|}{\textbf{USER}}                               & \multicolumn{3}{c|}{\textbf{GROUP}}                              & \multicolumn{3}{c|}{\textbf{OTHER}}                              \\ \hline
+\multicolumn{1}{|c|}{Read} & \multicolumn{1}{c|}{Write} & Execute & \multicolumn{1}{c|}{Read} & \multicolumn{1}{c|}{Write} & Execute & \multicolumn{1}{c|}{Read} & \multicolumn{1}{c|}{Write} & Execute \\ \hline
+\multicolumn{1}{|c|}{400}  & \multicolumn{1}{c|}{200}   & 100     & \multicolumn{1}{c|}{40}   & \multicolumn{1}{c|}{20}    & 10      & \multicolumn{1}{c|}{4}    & \multicolumn{1}{c|}{2}     & 1       \\ \hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Finding Documents and Files}
 \subsection{User accounts and passwords}
 \subsection{Managing Software}
