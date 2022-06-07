@@ -113,7 +113,7 @@ Your UNIX-like operating system has a directory structure, and files are the cen
 
 \subsection{Working Directory}
 
-In any process, there is a \textit{current working directory}.  Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory.  At your shell prompt, you can use the ``\verb|pwd|'' command to know your current working directory.  This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
+In any process, there is a \textit{current working directory}.  Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory.  At your shell prompt, you can use the ``\verb|pwd|'' ( present working directory ) command to know your current working directory.  This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
 
 You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''.  That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
 
@@ -163,8 +163,50 @@ The two main commands that are important here are
 
 
 \subsection{Finding Documents and Files}
+
+The ``\verb|find|'' command will allow you to locate a file or set of files on you system.  Basic usage is ``\verb|find -n "file.txt" |''
+
+If you want to find where a particular command is on your system you can use ``\verb|which|''.  So an example of ths could be ``\verb|which bash|'' the command will then return ``\verb|/usr/bin/bash|''
+
 \subsection{User accounts and passwords}
+
+It is sometimes necessary to add a new user to your system, or remove a user, you can also change a users password if they forget what it is.
+
+\begin{itemize}
+\item ``\verb|adduser|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
+\item ``\verb|useradd|'' - Used with suse 
+\item ``\verb|deluser|'' - used with Red hat, Fedora 
+\item ``\verb|passwd|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
+\item ``\verb|xx|'' - Used with suse 
+\item ``\verb|xx|'' - used with Red hat, Fedora 
+\end{itemize}
+
+
 \subsection{Managing Software}
+
+Depending on what distribution you are using, there are several tools that can be used to install or remove software on a GNU / Linux system.  
+
+\begin{itemize}
+\item ``\verb|apt|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
+\item ``\verb|yum|'' - Used with suse 
+\item ``\verb|rpm|'' - used with Red hat, Fedora 
+\end{itemize}
+
 \subsection{System Administration}
+
+System administration is important.  It helps you monitor users, monitor resources etc.
+\begin{itemize}
+``\verb|ps|'' - lists running processes on your system
+``\verb|top|'' - displays processes and allows them to be killed, or change their process priority
+``\verb|nice \& renice|''
+``\verb|htop|'' - more advanced version of top
+``\verb|killall|'' - kills a process e.g killall firefox-esr
+``\verb|cron|'' - Run a process at a specified time
+\end{itemize}
+
+\section{Shell Scripting}
+
+Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier.  A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
+
 
 \end{document}
