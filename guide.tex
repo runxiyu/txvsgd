@@ -29,7 +29,7 @@
 \frontmatter
 \chapter{Preface}
 
-This project has developed from a series of posts on a personal blog site run by zleap. This is a refactoring of that,  and will initially focus on helping people learn the command line for the GNU / Linux operating system.
+This project has developed from a series of posts on a personal blog site run by zleap. This is a refactoring of that content.  This will initially focus on helping people learn the command line for the GNU / Linux operating system.
 
 This is a big subject area, I am going to start off with a series of posts to take this back to basics, starting off with learning about the command line in modern UNIX-like operating systems and associated commands using the \texttt{bash} shell.  Then move on to scripting using Bash. 
 
@@ -85,6 +85,19 @@ Many users, mostly novice ones, are afraid of command-line interfaces as the ste
 Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly.  It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting.  In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
 
 Now, go ahead and open up a shell.  On graphical systems, look for a program called ``Terminal'' or similar.  If you see something similar to ``\verb|user@host:~\$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
+
+\section{What is GNU}
+
+As we are talking about GNU Bash, it makes sense to quickly explain what GNU is.   GNU stands for GNUs Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License. 
+
+https://www.gnu.org/
+
+\begin{itemize}
+\item Freedom to use for any purpose
+\item Freedom to study the software
+\item Freedom to modify
+\item Freedom to copy and share the software with others
+\end{itemize}
 
 \section{Interpretting the Prompt}
 
@@ -233,6 +246,37 @@ System administration is important.  It helps you monitor users, monitor resourc
 
 The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user. 
 
+\subsection{Videos}
+
+John Collins from ( https://www.ezeelinux.com/ ) produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
+
+These are hosted on Youtube.
+
+\begin{itemize
+\item https://youtu.be/eH8Z9zeywq0 | Access and Navigation 
+\item https://youtu.be/eH8Z9zeywq0 | Creating & Editing Text FIles 
+\item https://youtu.be/s23NqWKxOXk | Privileges and Permissions. 
+\item https://youtu.be/4r7V2-EBnR0 | Finding Documentation and Files 
+\item https://youtu.be/XVCf0cou6EU | User Accounts and Passwords 
+\item https://youtu.be/lNyJllHk2SA | Managing Software 
+\item https://youtu.be/4_21KZ3qKEI7 | System Administration Tools 
+\item https://youtu.be/57sp8Y0GL40 | Bash Scripting 
+\end{itemize}
+
+For the benefit of anyone who prefers the more privacy friendly front end, the Invideous links are below:-
+
+\begin{itemize
+\item https://invidious.snopyta.org/watch?v=eH8Z9zeywq0 | Access and Navigation 
+\item https://invidious.snopyta.org/watch?v=eH8Z9zeywq0 | Creating & Editing Text FIles 
+\item https://invidious.snopyta.org/watch?v=s23NqWKxOXk | Privileges and Permissions. 
+\item https://invidious.snopyta.org/watch?v=4r7V2-EBnR0 | Finding Documentation and Files 
+\item https://invidious.snopyta.org/watch?v=XVCf0cou6EU | User Accounts and Passwords 
+\item https://invidious.snopyta.org/watch?v=lNyJllHk2SA | Managing Software 
+\item https://invidious.snopyta.org/watch?v=4_21KZ3qKEI7 | System Administration Tools 
+\item https://invidious.snopyta.org/watch?v=57sp8Y0GL40 | Bash Scripting 
+\end{itemize}
+
+
 \section{Editing files}
 
 The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple.  So before moving on to shell scripting, we should learn howto use this, or at least, open, save and edit files. 
@@ -247,5 +291,61 @@ The nano editor is installed on pretty much every GNU / Linux system,  therefore
 \section{Shell Scripting}
 
 Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier.  A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
+
+\chapter{Next Steps}
+
+\section{Networking}
+
+https://www.youtube.com/watch?v=_IOZ8_cPgu8
+https://invidious.snopyta.org/watch?v=_IOZ8_cPgu8
+
+\begin{itemize}
+\item a switch
+\item router
+\item gateway
+\item subnet
+\item gateway
+\item firewall
+\item DMZ
+\end{itemize}
+
+\section{Git}
+
+\section{OpenSSH}
+
+OpenSSH is a part of a suite of tools that allow secure remote access to systems.  
+
+https://www.openssh.com/
+
+By running OpenSSH you can enable remote access, remote file transfer etc. 
+
+\section{Self Hosting}
+
+Andew Yu has produced a really good guide to self hosting,  this can be found at
+
+https://host.andrewyu.org/
+
+This covers :
+
+\begin{itemize}
+\item Get a domain name
+\item Get a server
+\item Set up DNS settings to connect your server and domain name
+\item Set up your web server
+\item Get a secure HTTPS connection with Certbot
+\end{itemize}
+
+Common network ports - https://networkverge.com/common-ports/
+
+\section{Gaming}
+
+Gaming may not be something that seems related to this, however multiplayer games do generally need someone to host the game on a server.
+
+Libre gaming night - https://libregaming.org/
+There is a related IRC Channel
+
+#libregamenight
+
+This is a regular event where people can get together to run multiplayer games,  so it makes sense to also include this, for anyone who would like to host their own game servers. 
 
 \end{document}
