@@ -2,3 +2,8 @@
 *.pdf
 *.log
 *.toc
+*.dvi
+*.ps
+*.html
+*.docx
+*.odt
