@@ -51,11 +51,26 @@ Firstly, we need access to a GNU/Linux system, there are numerous options here:
 
 \begin{itemize}
 	\item Install GNU/Linux on your computer;
-	\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as Raspberry Pis and BeagleBone boards;
+	\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as:-
+	\begin{itemize}
+	\item Raspberry Pis ( https://www.raspberrypi.org/ )
+	\item BeagleBone boards ( https://beagleboard.org )
+	\item Orange Pi ( http://www.orangepi.org/ )
+	\end{itemize)
 	\item Install GNU/Linux in a virtual machine;
+	\begin{itemize}
+	\item Virtial Box (https://www.virtualbox.org/ )
+	\end{itemize}
 	\item Use a public-access GNU/Linux system, such as \texttt{tilde.team}; 
 	\item Use a browser-based emulator such as \textttt{https://bellard.org/jslinux/}
 	\item \textit{et cetera}.
+\end{itemize}
+
+You could also join or help setup a local group such as 
+
+\begin{itemize}
+\item CodeClub ( https://www.codeclub.org.uk )
+\item CoderDojo ( https://coderdojo.com/ )
 \end{itemize}
 
 
@@ -202,11 +217,35 @@ System administration is important.  It helps you monitor users, monitor resourc
 ``\verb|htop|'' - more advanced version of top
 ``\verb|killall|'' - kills a process e.g killall firefox-esr
 ``\verb|cron|'' - Run a process at a specified time
+``\verb|su|'' - Drop to super user - Maintain current user path*
+``\verb|su -|'' - Drop to super use,  using the root users path* 
+``\verb|sudo|'' - suoer user do,  drop to root to just run one command.
+\end{itemize}
+
+\subsection{The Path Environment}
+ In the previous subsection I mentioned the ``\verb|su|'' and ``\verb|su -|'' lets have a quick look at how the path environment compares,  we can view the current path with ``\verb|echo $PATH|''
+\begin{itemize}
+\item This is the user path /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+\item This is the root path when using ``\verb|su|'' /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+\item This is the root path when using ``\verb|su -|'' /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+\item 
+\end{itemize}
+
+The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user. 
+
+\section{Editing files}
+
+The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple.  So before moving on to shell scripting, we should learn howto use this, or at least, open, save and edit files. 
+
+\begin{itemize}
+\item https://www.nano-editor.org/
+\item Youtube video - beginners guide to nano https://www.youtube.com/watch?v=cLyUZAabf40
+\item Nano Cheat sheet - ( https://www.nano-editor.org/dist/latest/cheatsheet.html )
+
 \end{itemize}
 
 \section{Shell Scripting}
 
 Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier.  A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
-
 
 \end{document}
