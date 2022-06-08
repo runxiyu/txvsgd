@@ -171,6 +171,8 @@ You may use the ``\verb|cat|'' command to output the data in a specified filenam
 
 While the ``\verb|cat|'' command can be used to read files, if the file is long then the output of cat will just scroll the contents up the screen.  The ``\verb|less|'' command displays the file content, but allows user interaction to display the file a page at a time.
 
+If you are using ``\verb|less|'' you can press ``\verb|q|'' to quit and return to the bash prompt. 
+
 \subsection{Creating Files}
 
 To create a file, you can use the ``\verb|touch|'', in this case ``\verb|touch file.txt|'' will create an empty file called file.txt.
@@ -182,6 +184,18 @@ To work with longer files, you can use editors such as ``\verb|nano|'' can also 
 You can also create files by directing the output of one command in to another.  For example, we have previosuly discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''.  Note that this truncates (i.e. clear) filelist.txt before redirecting the stream.  If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
 
 \danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operatings should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
+
+\subsection{File manipulation}
+
+Bash allows you to move, copy and rename files.   
+
+``\verb|cp|'' copy a file
+``\verb|mv|'' move a file or this will also rename a file
+``\verb|rename|'' This allows you to rename a file or set of files.  Very useful for batch renaming for example:-
+``\verb|rename 's/DSCF/newname/' *|'' will take a set of files in this case starting with DSCF and replace that with newname.  If you have lots of files on your camera DSCF is an exanple of a prefix at the start of each photo filename.   If you go to the beach you may want to rename that to beach for example, so that set of photos can be idenfied later.   It just renames that portionof the file, so the numerical part remains intact.  
+``\verb|rm|'' remove or delete a file
+``\verb|mkdir|'' create a directory
+``\verb|rmdir|'' remove or delete a directory
 
 \subsection{File Permissions}
 
@@ -213,14 +227,14 @@ If you want to find where a particular command is on your system you can use ``\
 It is sometimes necessary to add a new user to your system, or remove a user, you can also change a users password if they forget what it is.
 
 \begin{itemize}
-\item ``\verb|adduser|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
-\item ``\verb|useradd|'' - Used with suse 
-\item ``\verb|deluser|'' - used with Red hat, Fedora 
+\item ``\verb|adduser|'' - add a new user to the system
+\item ``\verb|useradd|'' - add a user to a group
+\item ``\verb|deluser|'' - delete a user from the system
+\item ``\verb|groupdel / delgroup|'' - manage groups on the system
 \item ``\verb|passwd|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
-\item ``\verb|xx|'' - Used with suse 
-\item ``\verb|xx|'' - used with Red hat, Fedora 
 \end{itemize}
 
+As previously mentioned the \item ``\verb|man|'' can be used to find out more information about each of these. 
 
 \subsection{Managing Software}
 
@@ -244,12 +258,12 @@ System administration is important.  It helps you monitor users, monitor resourc
 \item[``\texttt{cron}''] Run a process at a specified time
 \item[``\texttt{su}''] Drop to super user - Maintain current user path*
 \item[``\texttt{su}''] - Drop to super use,  using the root users path* 
-\item[``\texttt{sudo}''] suoer user do,  drop to root to just run one command.
+\item[``\texttt{sudo}''] super user do,  drop to root to just run one command.
 \item[``\texttt{reboot}''] restarts the system
 \end{itemize}
 
 
-\subsection{*The Path Environment}
+\subsection{The Path Environment}
  In the previous subsection I mentioned the ``\verb|su|'' and ``\verb|su -|'' lets have a quick look at how the path environment compares,  we can view the current path with ``\verb|echo $PATH|''
 \begin{itemize}
 \item This is the user path /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
@@ -262,13 +276,13 @@ The difference is mostly that using ``\verb|su -|'' you won't get file not found
 
 \subsection{Restarting an unresponsive system}
 
-This may also be useful - http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/
+This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/}
 
 \subsection{Videos}
 
 John Collins from ( https://www.ezeelinux.com/ ) produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
 
-These are hosted on Youtube.  For the benefit of anyone who prefers the more privacy friendly front end, the Invideous links are below:-
+These are hosted on Youtube.  For the purpose of this series, the links use the privacy friendly front end on Invideous:-
 
 \begin{itemize}
 \item [Access and Navigation] https://invidious.snopyta.org/watch?v=eH8Z9zeywq0 
@@ -296,6 +310,21 @@ The nano editor is installed on pretty much every GNU / Linux system,  therefore
 \section{Shell Scripting}
 
 Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier.  A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
+
+\subsection{Getting Started}
+
+
+\subsection{Checking who you are}
+
+Depending on the script being run and its function, you may want to check the user is running the script as root.  
+
+``\verb|
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root / sudo"
+exit
+
+  else
+|''
 
 \chapter{Next Steps}
 
