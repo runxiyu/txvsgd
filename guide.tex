@@ -318,13 +318,13 @@ Once you have become more used to the command line interface, a shell script can
 
 Depending on the script being run and its function, you may want to check the user is running the script as root.  
 
-``\verb|
+\begin{verbatim}
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root / sudo"
 exit
 
   else
-|''
+\end{verbatim}
 
 \chapter{Next Steps}
 
