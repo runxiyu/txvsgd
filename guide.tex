@@ -147,6 +147,11 @@ Sometimes, you are not looking for the command of an external program, but rathe
 
 \danger{You may have encountered the ``\verb|info|'' command as a system manual command.  That is part of the GNU \TeX info manual system, not the traditional UNIX manual system.  If you are looking for the manual of GNU utilities, such as ``\verb|bash|'', the \TeX info manuals will be more comprehensive than the manpages, and will generally include more examples and friendly information than what manpages will tell you.  However, not many programs outside of GNU utilities have \TeX info manuals.}
 
+\section{Useful general commands}
+``\verb|clear|'' clears the screen
+``\verb|whoami|'' displays current user name
+``\verb|logout|'' logout of current session
+
 \section{File Operations}
 
 Your UNIX-like operating system has a directory structure, and files are the center of UNIX-like operating systems.  Therefore, learning how to navigate the filesystem and handle files is important.
@@ -171,7 +176,22 @@ You may use the ``\verb|cat|'' command to output the data in a specified filenam
 
 While the ``\verb|cat|'' command can be used to read files, if the file is long then the output of cat will just scroll the contents up the screen.  The ``\verb|less|'' command displays the file content, but allows user interaction to display the file a page at a time.
 
-If you are using ``\verb|less|'' you can press ``\verb|q|'' to quit and return to the bash prompt. 
+If you are using ``\verb|less|'' you can press ``\verb|q|'' to quit and return to the bash prompt.
+
+You can also use the ``\verb|grep|'' to search through a file for specfic text, 
+``\verb|grep pear fruit.txt|'' will search for the text pear in the file fruit.txt.   
+
+``\verb|grep|'' stands for GNU Regular Expression Parser and is very powerful so may be discussed later in a video. 
+
+The ``\verb|wc|'' command stands for word count, and as you would expect gives the number of words in a document.
+
+\begin{verbatim}
+~/test$ wc fruit.txt 
+ 5  5 31 fruit.txt
+\end{verbatim}
+
+In this case,  5 lines, 5 words and 31 characters. 
+
 
 \subsection{Creating Files}
 
@@ -326,6 +346,12 @@ exit
   else
 \end{verbatim}
 
+In general a shell script starts with 
+
+\begin{verbatim}
+#!/usr/bin/env
+\end{verbatim}
+
 \chapter{Next Steps}
 
 \section{Networking}
@@ -342,6 +368,23 @@ https://invidious.snopyta.org/watch?v=\_IOZ8\_cPgu8
 \item firewall
 \item DMZ
 \end{itemize}
+
+As this is a series on bash,  then the above will give you an introduction to networking.  However within bash there are several tools for networking.
+
+``\verb|ping|'' sends a packet of data to the specified remote computer, this helps to check the remote computer is responding.
+
+``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host.  This will keep going until stopped with ``\verb|ctrl-d|''
+
+``\verb|ip addr show|''
+
+Shows local network information for each of the systems network interfaces
+
+\begin{verbatim}
+
+random text to fill in for now
+
+\end{verbatim}
+
 
 \section{Git}
 
