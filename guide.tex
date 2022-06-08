@@ -295,6 +295,13 @@ System administration is important.  It helps you monitor users, monitor resourc
 
 The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user. 
 
+\subsection{Environment variables}
+
+``\verb|echo $HOSTNAME|'' - Display hostname of system
+``\verb|echo $USER|'' - Current user
+``\verb|echo $PATH|'' - Display current users path setting
+
+
 \subsection{Restarting an unresponsive system}
 
 This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/}
@@ -379,6 +386,12 @@ As this is a series on bash,  then the above will give you an introduction to ne
 ``\verb|ip addr show|''
 
 Shows local network information for each of the systems network interfaces
+
+``\verb|hostname|'' will display the current system hostname
+``\verb|hostname -i |'' will display the localhost address
+``\verb|hostname -I |'' will display system IPv4 and IPv6 address
+
+see ``\verb|man hostname|'' for full details
 
 \begin{verbatim}
 
