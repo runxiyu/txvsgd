@@ -314,7 +314,24 @@ The difference is mostly that using ``\verb|su -|'' you won't get file not found
 ``\verb|echo $USER|'' - Current user
 ``\verb|echo $PATH|'' - Display current users path setting
 
+\subsection{Hardware related commands}
 
+On a Unix or GNU / Linux system, everything is a file,  this includes hardware, which is represented by a file. All these files are stored in the /dev folder.
+
+``\verb|ls /dev|''
+
+``\verb|lsusb|'' - lists usb devices
+``\verb|lspci|'' - lists pci devices
+``\verb|lsblk|'' - lists block devices (e.g hard disks and removable media)
+
+These commands are useful to figure out what is on your system,and where it is.  Removeable media can be mounted on to a folder, with a command such as ``\verb|mount \dev\usb \media\flash |''  then when you run ``\verb|cd \media\flash|'' you see the files on the device.
+
+It can be a little more involved than this from the command shell though. 
+
+The ``\verb|lsblk|'' is very useful for writing usb flash disks, to create a install disk or writing to a sdcard in order to create Raspberry Pi disk.
+
+While not fully related to this the ``\verb|dmesg|'' command displays kernel messages,  so you can run prior to, and after plugging in a device to see if it has been detected. 
+ 
 \subsection{Restarting an unresponsive system}
 
 This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/}
