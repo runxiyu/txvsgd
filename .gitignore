@@ -7,3 +7,7 @@
 *.html
 *.docx
 *.odt
+/guide/
+/guide/
+t.out
+*.out
