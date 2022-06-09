@@ -63,9 +63,10 @@ Firstly, we need access to a GNU/Linux system, there are numerous options here:
         \item Virtial Box (https://www.virtualbox.org/)
     \end{itemize}
     \item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
+    \item Use a service from \href{https:\\www.vern.cc}{Vern.cc}
     \item Use a browser-based emulator such as \texttt{https://bellard.org/jslinux/}
     \item \textit{et cetera}.
-\end{itemize}
+    \end{itemize}
 
 You could also join or help setup a local group such as 
 
@@ -226,6 +227,7 @@ The two main commands that are important here are
 
 ``\verb|chmod|'' - Changes the file permission, to determine what can be done with it. 
 ``\verb|chown|'' - Changes the file owner
+``\verb|chgrp|'' - Changes group owner
 
 \begin{table}[h]
 \begin{tabular}{|ccc|ccc|ccc|}
@@ -252,6 +254,7 @@ It is sometimes necessary to add a new user to your system, or remove a user, yo
 \item ``\verb|useradd|'' - add a user to a group
 \item ``\verb|deluser|'' - delete a user from the system
 \item ``\verb|groupdel / delgroup|'' - manage groups on the system
+\item ``\verb|addgroup|'' - add group to the system
 \item ``\verb|passwd|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
 \end{itemize}
 
@@ -434,17 +437,20 @@ random text to fill in for now
 
 \section{OpenSSH}
 
-OpenSSH is a part of a suite of tools that allow secure remote access to systems.  
+OpenSSH is a part of a suite of tools that allow secure remote access to systems.  Open Secure Shell.
 
-https://www.openssh.com/
+\href{https://www.openssh.com/}{OpenSSH server}
 
-By running OpenSSH you can enable remote access, remote file transfer etc. 
+Install with ``\verb|apt install openssh-server|''
+
+SSH can be used with ``\verb|ssh-keygen|'' to generate a ssh keypair, which can be used to login to a remote system without a password.    This is a good option to maintain security.  
+
 
 \section{Self Hosting}
 
 Andew Yu has produced a really good guide to self hosting,  this can be found at
 
-https://host.andrewyu.org/
+\href{https://host.andrewyu.org/}{Andrew Yu Hosting guide}
 
 This covers :
 
@@ -456,17 +462,19 @@ This covers :
 \item Get a secure HTTPS connection with Certbot
 \end{itemize}
 
-Common network ports - https://networkverge.com/common-ports/
+\href{https://networkverge.com/common-ports/}{Common network ports}
+
+There are also other guides to set up other types of server, or at least links to.   
 
 \section{Gaming}
 
-Gaming may not be something that seems related to this, however multiplayer games do generally need someone to host the game on a server.
+Gaming may not be something that seems directly related to this.  You may be interested in running a game server, for friends or to take part in events such as: 
 
-Libre gaming night - https://libregaming.org/
-There is a related IRC Channel
+\href{https://libregaming.org/}{Libre gaming night}
+
+There is a related IRC Channel on LiberaChat 
 
 \#libregamenight
 
-This is a regular event where people can get together to run multiplayer games,  so it makes sense to also include this, for anyone who would like to host their own game servers. 
 
 \end{document}
