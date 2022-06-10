@@ -156,7 +156,10 @@ Sometimes, you are not looking for the command of an external program, but rathe
 \section{Useful general commands}
 ``\verb|clear|'' clears the screen
 ``\verb|whoami|'' displays current user name
+``\verb|id|''  display user information
 ``\verb|logout|'' logout of current session
+``\verb|date|'' display current date and time
+``\verb|ln|'' make links between files
 
 \section{File Operations}
 
@@ -167,6 +170,12 @@ Your UNIX-like operating system has a directory structure, and files are the cen
 In any process, there is a \textit{current working directory}.  Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory.  At your shell prompt, you can use the ``\verb|pwd|'' ( present working directory ) command to know your current working directory.  This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
 
 You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''.  That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
+
+**
+
+this section needs a creative commons diagram of the GNU / Linux directory structure.
+
+**
 
 \subsection{Listing Files}
 
@@ -184,6 +193,10 @@ While the ``\verb|cat|'' command can be used to read files, if the file is long 
 
 If you are using ``\verb|less|'' you can press ``\verb|q|'' to quit and return to the bash prompt.
 
+You can also use the ``\verb|more|'' command to view a file a page at a time, as with less, press q to quit. 
+
+The `\verb|diff|'' command can be used to display any text that is different between two files. This is useful if you can't remember which is a later version for example.
+
 You can also use the ``\verb|grep|'' to search through a file for specfic text, 
 ``\verb|grep pear fruit.txt|'' will search for the text pear in the file fruit.txt.   
 
@@ -197,6 +210,7 @@ The ``\verb|wc|'' command stands for word count, and as you would expect gives t
 \end{verbatim}
 
 In this case,  5 lines, 5 words and 31 characters. 
+
 
 
 \subsection{Creating Files}
@@ -342,6 +356,10 @@ While not fully related to this the ``\verb|dmesg|'' command displays kernel mes
 \subsection{Restarting an unresponsive system}
 
 This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/}
+
+\
+
+
 
 \subsection{Videos}
 
