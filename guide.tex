@@ -457,12 +457,6 @@ random text to fill in for now
 \end{verbatim}
 
 
-\section{Git}
-
-Git is a tool to help manage software projects,  git is used in combination with sites such as \href{https://www.git.com}{github}, however as there are several alternatives such as 
-\href{https://codeberg.org/}{Codeberg} and others
-
-Git is clearly a very powerful tool,  learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help. 
 
 \section{OpenSSH}
 
@@ -472,7 +466,56 @@ OpenSSH is a part of a suite of tools that allow secure remote access to systems
 
 Install with ``\verb|apt install openssh-server|''
 
-SSH can be used with ``\verb|ssh-keygen|'' to generate a ssh keypair, which can be used to login to a remote system without a password.    This is a good option to maintain security.  
+SSH can be used with ``\verb|ssh-keygen|'' to generate a ssh keypair, which can be used to login to a remote system without a password.    This is a good option to maintain security. 
+
+To generate a key pair with ``\verb|ssh-keygen|''
+
+
+\begin{verbatim}
+
+testuser@Desktop:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/testuser/.ssh/id_rsa): 
+Created directory '/home/testuser/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/testuser/.ssh/id_rsa
+Your public key has been saved in /home/testuser/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:10eg+9WU5kaiaicN4oLP+0Y2L/FmCwKygIQjwo9mNq4 testuser@Desktop
+The key's randomart image is:
++---[RSA 3072]----+
+|            .    |
+|o          . .  .|
+|=o        .  ..+.|
+|=.o        o..=o |
+|oB o   .S.o.. oo.|
+|* + o .=..+. o.  |
+| o . ooo=+ o.    |
+|.   o ooo=o      |
+|E    ++.+..      |
++----[SHA256]-----+
+
+\end{verbatim}
+
+I have just accepted the defaults by pressing enter.  for both the file name and setting and confirming a passphrase. 
+
+If you now type ``\verb|cd .ssh|'' then ``\verb|cd .ssh|'' you will find two files. 
+
+\begin{verbatim}
+id_rsa  id_rsa.pub
+\end{verbatim}
+
+id_rsa is you \textbf{Private} key and should be treated as such.  id_rsa.pub is you \textbf{Public} and can be shared. 
+
+\section{Git}
+
+Git is a tool to help manage software projects,  git is used in combination with sites such as \href{https://www.git.com}{github}, however as there are several alternatives such as 
+\href{https://codeberg.org/}{Codeberg} and others
+
+Git is clearly a very powerful tool,  learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help. 
+
+ 
 
 \section{Self Hosting}
 
