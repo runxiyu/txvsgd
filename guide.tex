@@ -32,7 +32,7 @@
 
 This project has developed from a series of posts on a personal blog site run by zleap. This is a refactoring of that content.  This will initially focus on helping people learn the command line for the GNU / Linux operating system.
 
-In turn this will hopefully complement the hosting guides produced by Andew Yu.  As most of those assume at least some knowledge of the command line.  So it makes sense to be familar with this.  Learning basic shell scripting, will also help you interpret and modify scripts for your own needs. 
+In turn this will hopefully complement the hosting guides produced by Andrew Yu.  As most of those assume at least some knowledge of the command line.  So it makes sense to be familiar with this.  Learning basic shell scripting, will also help you interpret and modify scripts for your own needs.
 
 This is a big subject area, I am going to start off with a series of posts to take this back to basics, starting off with learning about the command line in modern UNIX-like operating systems and associated commands using the \texttt{bash} shell.  Then move on to scripting using Bash. 
 
@@ -62,17 +62,17 @@ Firstly, we need access to a GNU/Linux system, there are numerous options here:
     \end{itemize}
     \item Install GNU/Linux in a virtual machine;
     \begin{itemize}
-        \item Virtial Box (https://www.virtualbox.org/)
+        \item Virtual Box (https://www.virtualbox.org/)
     \end{itemize}
     \item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
-    \item Use a service from \href{https:\\www.vern.cc}{Vern.cc}
+    \item Use a service from \href{https://www.vern.cc}{Vern.cc}
     \item Use a browser-based emulator such as \texttt{https://bellard.org/jslinux/}
     \item \textit{et cetera}.
     \end{itemize}
 
 \chapter{Getting support with this series}
 
-You can get some help via IRC (Internet Relay Chat) myself (zleap) Ron (noisytoot), AnndrewYu (Andrew) all hang out on IRC.  There are several ways to connect to this via a client. it is probably easier, at least in the first instance to use a web based interface. 
+You can get some help via IRC (Internet Relay Chat) myself (zleap) Ron (noisytoot), AndrewYu (Andrew) all hang out on IRC.  There are several ways to connect to this via a client. it is probably easier, at least in the first instance to use a web based interface.
 
 \begin{enumerate}
 \item go to https://libera.chat/
@@ -98,7 +98,7 @@ We will be mainly working in the \texttt{bash} shell in this series.  GNU \textt
 
 A \textit{shell} is, in general, the program that you interact with your computer with.  When used in a more specific context it refers to a command-line shell that users type commands to.  The shell usually does some interpretation on the user input and passes these options launching a program, or they modify the shell's internal environment.
 
-Many users, mostly novice ones, are afraid of command-line interfaces as the sterotypical UNIX command-line is very terse.  In rare fields this is still true, but things are generally better than in the old days.  For example, visual text editors are widespread among users of bitmap displays and terse teletype-oriented ones like \texttt{ed} are fading away.
+Many users, mostly novice ones, are afraid of command-line interfaces as the stereotypical UNIX command-line is very terse.  In rare fields this is still true, but things are generally better than in the old days.  For example, visual text editors are widespread among users of bitmap displays and terse teletype-oriented ones like \texttt{ed} are fading away.
 
 Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly.  It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting.  In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
 
@@ -106,7 +106,7 @@ Now, go ahead and open up a shell.  On graphical systems, look for a program cal
 
 \section{What is GNU}
 
-As we are talking about GNU Bash, it makes sense to quickly explain what GNU is.   GNU stands for GNUs Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License. 
+As we are talking about GNU Bash, it makes sense to quickly explain what GNU is.   GNU stands for GNU's Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License. 
 
 https://www.gnu.org/
 
@@ -117,7 +117,7 @@ https://www.gnu.org/
 \item Freedom to copy and share the software with others
 \end{itemize}
 
-\section{Interpretting the Prompt}
+\section{Interpreting the Prompt}
 
 When you see something like ``\verb|user@host:~\$|'' or ``\verb|[user@host ~] $|'', the shell is waiting for you to type a command.
 
@@ -145,7 +145,7 @@ For example, try 'man man'.
 user@host:~$ 
 \end{verbatim}
 
-It looks like that the computer is telling you that \verb|man| doesn't know what manual page to look up \ldots You should think of some keyword to tell \verb|man| to look up as \verb|man| allows you to view specific pages in the system manual.  Usually, the entrys' names are the name of the program, system call names, standard library function names, file formats (specifically filenames), etc.  They are divided into a few sections, which you should read more about with \verb|man man|, i.e. asking the system manual about the manual utility itself.  It is wise use the system manual for the command in interest before asking for support---because many times the manual solves your problems, and people don't like repeating a documented solution all the time, hense the ``Read the F* Manual'' ``meme'' spreading around.
+It looks like that the computer is telling you that \verb|man| doesn't know what manual page to look up \ldots You should think of some keyword to tell \verb|man| to look up as \verb|man| allows you to view specific pages in the system manual.  Usually, the entries' names are the name of the program, system call names, standard library function names, file formats (specifically filenames), etc.  They are divided into a few sections, which you should read more about with \verb|man man|, i.e. asking the system manual about the manual utility itself.  It is wise use the system manual for the command in interest before asking for support---because many times the manual solves your problems, and people don't like repeating a documented solution all the time, hence the ``Read the F* Manual'' ``meme'' spreading around.
 
 When you encounter something that you want to do but you're not sure which command to use, the \verb|apropos| command is useful.  \verb|apropos| searches the manual database's page names and summary lines for your search term.  For example, if you're looking for a utility to print a file (which is usually \verb|lpr| or \verb|lp|, by the way), you could run \verb|apropos print|, and you'll be presented with a list of related manual entries (though do note how the term ``print'' is used for ``output text onto the screen'' besides ``tell the printer to put ink (or powder) onto paper'' for historical reasons).  Since you're looking for a \emph{command} to print, you'd generally want to look in section~1 of the manual (those marked with ``\verb|(1)|'').
 
@@ -163,7 +163,7 @@ Sometimes, you are not looking for the command of an external program, but rathe
 
 \section{File Operations}
 
-Your UNIX-like operating system has a directory structure, and files are the center of UNIX-like operating systems.  Therefore, learning how to navigate the filesystem and handle files is important.
+Your UNIX-like operating system has a directory structure, and files are the centre of UNIX-like operating systems.  Therefore, learning how to navigate the filesystem and handle files is important.
 
 \subsection{Working Directory}
 
@@ -197,7 +197,7 @@ You can also use the ``\verb|more|'' command to view a file a page at a time, as
 
 The `\verb|diff|'' command can be used to display any text that is different between two files. This is useful if you can't remember which is a later version for example.
 
-You can also use the ``\verb|grep|'' to search through a file for specfic text, 
+You can also use the ``\verb|grep|'' to search through a file for specific text,
 ``\verb|grep pear fruit.txt|'' will search for the text pear in the file fruit.txt.   
 
 ``\verb|grep|'' stands for GNU Regular Expression Parser and is very powerful so may be discussed later in a video. 
@@ -221,9 +221,9 @@ To create a file, you can use the ``\verb|touch|'', in this case ``\verb|touch f
 
 To work with longer files, you can use editors such as ``\verb|nano|'' can also be used so ``\verb|nano file.txt|'' will either open an existing file or create a new file with that file name.   You can then edit the file contents.
 
-You can also create files by directing the output of one command in to another.  For example, we have previosuly discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''.  Note that this truncates (i.e. clear) filelist.txt before redirecting the stream.  If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
+You can also create files by directing the output of one command in to another.  For example, we have previously discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''.  Note that this truncates (i.e. clear) filelist.txt before redirecting the stream.  If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
 
-\danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operatings should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
+\danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operations should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
 
 \subsection{File manipulation}
 
@@ -232,14 +232,14 @@ Bash allows you to move, copy and rename files.
 ``\verb|cp|'' copy a file
 ``\verb|mv|'' move a file or this will also rename a file
 ``\verb|rename|'' This allows you to rename a file or set of files.  Very useful for batch renaming for example:-
-``\verb|rename 's/DSCF/newname/' *|'' will take a set of files in this case starting with DSCF and replace that with newname.  If you have lots of files on your camera DSCF is an exanple of a prefix at the start of each photo filename.   If you go to the beach you may want to rename that to beach for example, so that set of photos can be idenfied later.   It just renames that portionof the file, so the numerical part remains intact.  
+``\verb|rename 's/DSCF/newname/' *|'' will take a set of files in this case starting with DSCF and replace that with newname.  If you have lots of files on your camera DSCF is an example of a prefix at the start of each photo filename.   If you go to the beach you may want to rename that to beach for example, so that set of photos can be identified later.   It just renames that portion of the file, so the numerical part remains intact.
 ``\verb|rm|'' remove or delete a file
 ``\verb|mkdir|'' create a directory
 ``\verb|rmdir|'' remove or delete a directory
 
 \subsection{File Permissions}
 
-File permissions are an important security feature in any Unix type envirionment.  Files can either be Read, Write or Executable (e.g a shell script).  Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.  
+File permissions are an important security feature in any Unix type environment.  Files can either be Read, Write or Executable (e.g a shell script).  Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.
 
 The two main commands that are important here are
 
@@ -261,7 +261,7 @@ The two main commands that are important here are
 
 The ``\verb|find|'' command will allow you to locate a file or set of files on you system.  Basic usage is ``\verb|find -n "file.txt" |''
 
-If you want to find where a particular command is on your system you can use ``\verb|which|''.  So an example of ths could be ``\verb|which bash|'' the command will then return ``\verb|/usr/bin/bash|''
+If you want to find where a particular command is on your system you can use ``\verb|which|''.  So an example of this could be ``\verb|which bash|'' the command will then return ``\verb|/usr/bin/bash|''
 
 \subsection{User accounts and passwords}
 
@@ -292,9 +292,9 @@ As previously mentioned the ``\verb|man|'' command can be used to find out more 
 Depending on what distribution you are using, there are several tools that can be used to install or remove software on a GNU / Linux system.  
 
 \begin{itemize}
-\item ``\verb|apt|'' - used on Debian and Debian derived systems e.g Ubutnu, Mint
-\item ``\verb|yum|'' - Used with suse 
-\item ``\verb|rpm|'' - used with Red hat, Fedora 
+\item ``\verb|apt|'' - used on Debian and Debian derived systems e.g Ubuntu, Mint
+\item ``\verb|yum|'' - Used with SUSE
+\item ``\verb|rpm|'' - used with Red Hat, Fedora
 \end{itemize}
 
 \subsection{System Administration}
@@ -303,7 +303,7 @@ System administration is important.  It helps you monitor users, monitor resourc
 \begin{itemize}
 \item[``\texttt{ps}''] lists running processes on your system
 \item[``\texttt{top}''] displays processes and allows them to be killed, or change their process priority
-\item[``\texttt{nice \& renice}''] - change process priority
+\item[``\texttt{nice}'' \& ``\texttt{renice}''] - change process priority
 \item[``\texttt{htop}''] more advanced version of top
 \item[``\texttt{killall}''] kills a process e.g killall firefox-esr
 \item[``\texttt{cron}''] Run a process at a specified time
@@ -337,15 +337,15 @@ On a Unix or GNU / Linux system, everything is a file,  this includes hardware, 
 
 ``\verb|ls /dev|''
 
-``\verb|lsusb|'' - lists usb devices
-``\verb|lspci|'' - lists pci devices
+``\verb|lsusb|'' - lists USB devices
+``\verb|lspci|'' - lists PCI devices
 ``\verb|lsblk|'' - lists block devices (e.g hard disks and removable media)
 
-These commands are useful to figure out what is on your system, and where it is.  Removeable media can be mounted on to a folder, with a command such as ``\verb|mount /dev/usb /media/flash |''  then when you run ``\verb|cd /media/flash|'' you see the files on the device.
+These commands are useful to figure out what is on your system, and where it is.  Removable media can be mounted on to a folder, with a command such as ``\verb|mount /dev/usb /media/flash |''  then when you run ``\verb|cd /media/flash|'' you see the files on the device.
 
 It can be a little more involved than this from the command shell though. 
 
-The ``\verb|lsblk|'' is very useful for writing usb flash disks, to create a install disk or writing to a sdcard in order to create Raspberry Pi disk.
+The ``\verb|lsblk|'' is very useful for writing USB flash disks, to create a install disk or writing to a SD card in order to create Raspberry Pi disk.
 
 While not fully related to this the ``\verb|dmesg|'' command displays kernel messages,  so you can run prior to, and after plugging in a device to see if it has been detected. 
  
@@ -361,14 +361,14 @@ This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusab
 
 John Collins from ( https://www.ezeelinux.com/ ) produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
 
-These are hosted on Youtube.  For the purpose of this series, the links use the privacy friendly front end on Invideous:-
+These are hosted on YouTube.  For the purpose of this series, the links use the privacy friendly front end on Invidious:-
 
 \begin{itemize}
-\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Access and Navigation}  
-\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Editing Text FIles}[Creating 
-\item \href{https://invidious.snopyta.org/watch?v=s23NqWKxOXk}{Privileges and Permissions} 
+\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Access and Navigation}
+\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Editing Text Files}
+\item \href{https://invidious.snopyta.org/watch?v=s23NqWKxOXk}{Privileges and Permissions}
 \item \href{https://invidious.snopyta.org/watch?v=4r7V2-EBnR0}{Finding Documentation and Files}
-\item \href{https://invidious.snopyta.org/watch?v=XVCf0cou6EU}{User Accounts and Passwords}[ 
+\item \href{https://invidious.snopyta.org/watch?v=XVCf0cou6EU}{User Accounts and Passwords}
 \item \href{https://invidious.snopyta.org/watch?v=lNyJllHk2SA}{Managing Software}
 \item \href{https://invidious.snopyta.org/watch?v=4\_21KZ3qKEI7}{System Administration Tools}
 \item \href{https://invidious.snopyta.org/watch?v=57sp8Y0GL40}{Bash Scripting}
@@ -377,7 +377,7 @@ These are hosted on Youtube.  For the purpose of this series, the links use the 
 
 \section{Editing files}
 
-The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple.  So before moving on to shell scripting, we should learn howto use this, or at least, open, save and edit files. 
+The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple.  So before moving on to shell scripting, we should learn how to use this, or at least, open, save and edit files.
 
 \begin{itemize}
 \item \href{https://www.nano-editor.org/}{Nano Editor website}
@@ -417,8 +417,8 @@ In general a shell script starts with
 
 It is a good idea to understand networking concepts, this is especially useful if you want to host your own web services. 
 
-\href{https://www.youtube.com/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - Youtube}
-\href{https://invidious.snopyta.org/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - Invideous}
+\href{https://www.youtube.com/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - YouTube}
+\href{https://invidious.snopyta.org/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - Invidious}
 
 \begin{itemize}
 \item a switch
@@ -496,7 +496,7 @@ The key's randomart image is:
 
 I have just accepted the defaults by pressing enter.  for both the file name and setting and confirming a passphrase. 
 
-If you now type ``\verb|cd .ssh|'' you will find two files. 
+If you now type ``\verb|cd .ssh|'' you will find two files.
 
 \begin{verbatim}
 id_rsa  id_rsa.pub
@@ -515,7 +515,7 @@ Git is clearly a very powerful tool,  learning git is an important skill, but it
 
 \section{Self Hosting}
 
-Andew Yu has produced a really good guide to self hosting,  this can be found at
+Andrew Yu has produced a really good guide to self hosting,  this can be found at
 
 \href{https://host.andrewyu.org/}{Andrew Yu Hosting guide}
 
@@ -539,7 +539,7 @@ Gaming may not be something that seems directly related to this.  You may be int
 
 \href{https://libregaming.org/}{Libre gaming night}
 
-There is a related IRC Channel on LiberaChat 
+There is a related IRC Channel on Libera Chat
 
 \#libregamenight
 
