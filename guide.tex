@@ -390,17 +390,18 @@ Once you have become more used to the command line interface, a shell script can
 Depending on the script being run and its function, you may want to check the user is running the script as root.
 
 \begin{verbatim}
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root / sudo"
-exit
-
-  else
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run as root / sudo"
+  exit
+fi
 \end{verbatim}
 
-In general a shell script starts with
+Shell scripts start with \texttt{\#!} followed by a path to the interpreter, for example \texttt{/bin/sh}.
+There is no standard location for where the interpreter is located, but \texttt{/usr/bin/env} often (but not always) exists.
+It is possible to use \texttt{env} to find an interpreter without specifying the full path, for example:
 
 \begin{verbatim}
-#!/usr/bin/env
+#!/usr/bin/env bash
 \end{verbatim}
 
 \chapter{Next Steps}
