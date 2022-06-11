@@ -23,6 +23,7 @@
 
 \newcommand\ph[1]{\texttt{\textit{#1}}}
 \newcommand\libera[1]{\href{https://web.libera.chat/?channel=\##1}{\texttt{\##1} on \texttt{irc.libera.chat}}}
+\newcommand\youtube[2]{\href{https://invidious.snopyta.org/watch?v=#1}{#2}}
 \makeatother
 
 \begin{document}
@@ -55,15 +56,23 @@ Firstly, we need access to a GNU/Linux system, there are numerous options here:
 
 \begin{itemize}
 \item Install GNU/Linux on your computer;
-\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as:
+\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as these single-board computers:
   \begin{itemize}
-  \item BeagleBone boards (https://beagleboard.org)
-  \item Raspberry Pis (https://www.raspberrypi.org/)
-  \item Orange Pi (http://www.orangepi.org/)
+  \item \href{https://beagleboard.org}{BeagleBone boards}
+  \item \href{https://www.raspberrypi.org/}{Raspberry Pi}
+  \item \href{http://www.orangepi.org/}{Orange Pi}
+  \item \href{https://www.pine64.org/devices/single-board-computers/rock64/}{ROCK64}
+  \item \href{https://www.pine64.org/devices/single-board-computers/pine-a64-lts/}{PINE A64-LTS}
+  \end{itemize}
+  or these laptops:
+  \begin{itemize}
+  \item \href{https://www.pine64.org/pinebook/}{Pinebook}
+  \item \href{https://www.pine64.org/pinebook-pro/}{Pinebook Pro}
+  \item Anything listed on \href{https://ryf.fsf.org/categories/laptops}{the FSF's RYF page}
   \end{itemize}
 \item Install GNU/Linux in a virtual machine;
   \begin{itemize}
-  \item Virtual Box (https://www.virtualbox.org/)
+  \item \href{https://www.qemu.org/}{QEMU}
   \end{itemize}
 \item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
 \item Use a service from \href{https://www.vern.cc}{Vern.cc}
@@ -352,19 +361,19 @@ This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusab
 
 \subsection{Videos}
 
-John Collins from ( https://www.ezeelinux.com/ ) produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
+John Collins from \href{https://www.ezeelinux.com/}{EzeeLinux} produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
 
-These are hosted on YouTube. For the purpose of this series, the links use the privacy friendly front end on Invidious:-
+These are hosted on YouTube. For the purpose of this series, the links use the privacy friendly front end on Invidious:
 
 \begin{itemize}
-\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Access and Navigation}
-\item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Editing Text Files}
-\item \href{https://invidious.snopyta.org/watch?v=s23NqWKxOXk}{Privileges and Permissions}
-\item \href{https://invidious.snopyta.org/watch?v=4r7V2-EBnR0}{Finding Documentation and Files}
-\item \href{https://invidious.snopyta.org/watch?v=XVCf0cou6EU}{User Accounts and Passwords}
-\item \href{https://invidious.snopyta.org/watch?v=lNyJllHk2SA}{Managing Software}
-\item \href{https://invidious.snopyta.org/watch?v=4\_21KZ3qKEI7}{System Administration Tools}
-\item \href{https://invidious.snopyta.org/watch?v=57sp8Y0GL40}{Bash Scripting}
+\item \youtube{eH8Z9zeywq0}{Access and Navigation}
+\item \youtube{eH8Z9zeywq0}{Editing Text Files}
+\item \youtube{s23NqWKxOXk}{Privileges and Permissions}
+\item \youtube{4r7V2-EBnR0}{Finding Documentation and Files}
+\item \youtube{XVCf0cou6EU}{User Accounts and Passwords}
+\item \youtube{lNyJllHk2SA}{Managing Software}
+\item \youtube{4\_21KZ3qKEI7}{System Administration Tools}
+\item \youtube{57sp8Y0GL40}{Bash Scripting}
 \end{itemize}
 
 
@@ -374,7 +383,7 @@ The nano editor is installed on pretty much every GNU / Linux system,  therefore
 
 \begin{itemize}
 \item \href{https://www.nano-editor.org/}{Nano Editor website}
-\item \href{https://www.youtube.com/watch?v=cLyUZAabf40}{Youtube video - beginners guide to nano}
+\item \youtube{cLyUZAabf40}{Beginners guide to nano}
 \item \href{https://www.nano-editor.org/dist/latest/cheatsheet.html}{Nano Cheat sheet}
 \end{itemize}
 
@@ -410,8 +419,7 @@ It is possible to use \texttt{env} to find an interpreter without specifying the
 
 It is a good idea to understand networking concepts, this is especially useful if you want to host your own web services.
 
-\href{https://www.youtube.com/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - YouTube}
-\href{https://invidious.snopyta.org/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - Invidious}
+\youtube{\_IOZ8\_cPgu8}{Networking Beginners}
 
 \begin{itemize}
 \item a switch
