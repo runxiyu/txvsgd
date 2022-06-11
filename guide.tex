@@ -9,7 +9,7 @@
 \setlength\parindent{2.3\parindent}
 
 \makeatletter
-% Dangerous Bend - Please only use this when there are two lines of text in the dangerous paragraph!
+% Dangerous Bend - Please only use this when there are at least two lines of text in the dangerous paragraph!
 \def\hang{\hangindent \parindent}
 \def\d@nger{\medbreak\begingroup\clubpenalty=10000
   \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
@@ -279,6 +279,10 @@ It is sometimes necessary to add a new user to your system, or remove a user, yo
 \item ``\verb|passwd|'' - changes a user's password
 \end{itemize}
 
+use of the ``\verb|passwd|'' command usually combines with a user name
+
+``\verb|passwd|'' changes currently logged in users password
+
 \begin{verbatim}
 $ passwd
 Changing password for user1.
@@ -386,6 +390,7 @@ The nano editor is installed on pretty much every GNU / Linux system,  therefore
 \item \href{https://www.nano-editor.org/}{Nano Editor website}
 \item \youtube{cLyUZAabf40}{Beginners guide to nano}
 \item \href{https://www.nano-editor.org/dist/latest/cheatsheet.html}{Nano Cheat sheet}
+
 \end{itemize}
 
 \section{Shell Scripting}
@@ -436,7 +441,7 @@ As this is a series on bash,  then the above will give you an introduction to ne
 
 ``\verb|ping|'' sends a packet of data to the specified remote computer, this helps to check the remote computer is responding.
 
-``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host. This will keep going until stopped with ``\verb|ctrl-d|''. You can ping other computers on your network or on the wider internet. Please \textbf{do not flood} other computers.
+``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host.  This will keep going until stopped with ``\verb|ctrl-d|''.  You can ping other computers on your network or on the wider internet.  Please \emph{do not flood} other computers.
 
 ``\verb|ip addr show|''
 
