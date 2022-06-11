@@ -105,7 +105,7 @@ Many users, mostly novice ones, are afraid of command-line interfaces as the ste
 
 Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly. It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting. In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
 
-Now, go ahead and open up a shell. On graphical systems, look for a program called ``Terminal'' or similar. If you see something similar to ``\verb|user@host:~\$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
+Now, go ahead and open up a shell. On graphical systems, look for a program called ``Terminal'' or similar. If you see something similar to ``\verb|user@host:~$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
 
 \section{What is GNU}
 
@@ -172,7 +172,7 @@ Your UNIX-like operating system has a directory structure, and files are the cen
 
 In any process, there is a \textit{current working directory}. Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory. At your shell prompt, you can use the ``\verb|pwd|'' ( present working directory ) command to know your current working directory. This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
 
-You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''. That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
+You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user|''. That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory} (``\verb|$HOME|''), which is usually where you land when you login and is the place a user stores their personal files.
 
 **
 
@@ -514,12 +514,20 @@ If you now type ``\verb|cd .ssh|'' you will find two files.
 id_rsa  id_rsa.pub
 \end{verbatim}
 
-id\_rsa is your \textbf{Private} key and should be treated as such. id\_rsa.pub is your \textbf{Public} key and can be shared.
+\verb|id_rsa| is your \textbf{Private} key and should be treated as such. \verb|id_rsa.pub| is your \textbf{Public} key and can be shared.
+
+It is possible to specify the type of key to be generated with the ``\verb|-t|'' option, which can be used like:
+
+\begin{verbatim}
+ssh-keygen -t ed25519
+\end{verbatim}
+
+The default is ``\verb|rsa|'', but ``\verb|ed25519|'' is a more modern and faster, but still just as secure, algorithm.
 
 \section{Git}
 
-Git is a tool to help manage software projects, git is used in combination with sites such as \href{https://github.com/}{GitHub}, however as there are several alternatives such as
-\href{https://codeberg.org/}{Codeberg} and others
+Git is a tool to help manage software projects, git is used in combination with sites such as \href{https://github.com/}{GitHub}, however there are several alternatives such as
+\href{https://codeberg.org/}{Codeberg}, \href{https://sr.ht/}{Sourcehut} and others.
 
 Git is clearly a very powerful tool, learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help.
 
