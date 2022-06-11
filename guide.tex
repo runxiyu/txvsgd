@@ -109,9 +109,9 @@ Now, go ahead and open up a shell. On graphical systems, look for a program call
 
 \section{What is GNU}
 
-As we are talking about GNU Bash, it makes sense to quickly explain what GNU is. GNU stands for GNU's Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License.
+As we are talking about GNU Bash, it makes sense to quickly explain what GNU is. GNU stands for GNU's Not Unix, GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License.\\
 
-https://www.gnu.org/
+\href{https://www.gnu.org/}{The GNU Project}
 
 \begin{itemize}
 \item Freedom to use for any purpose
@@ -122,7 +122,7 @@ https://www.gnu.org/
 
 \section{Interpreting the Prompt}
 
-When you see something like ``\verb|user@host:~\$|'' or ``\verb|[user@host ~] $|'', the shell is waiting for you to type a command.
+When you see something like ``\verb|user@host:~$|'' or ``\verb|[user@host ~] $|'', the shell is waiting for you to type a command.
 
 The default prompt on most systems consists of four parts:
 \begin{enumerate}
@@ -212,7 +212,7 @@ The ``\verb|wc|'' command stands for word count, and as you would expect gives t
  5  5 31 fruit.txt
 \end{verbatim}
 
-In this case,  5 lines, 5 words and 31 characters.
+In this case, 5 lines, 5 words and 31 characters.
 
 
 
@@ -242,7 +242,7 @@ Bash allows you to move, copy and rename files.
 
 \subsection{File Permissions}
 
-File permissions are an important security feature in any Unix type environment. Files can either be Read, Write or Executable (e.g a shell script). Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.
+File permissions are an important security feature in any Unix type environment. Files can either be Read, Write or Executable (e.g a shell script). Depending on who you want to be able to access these files, a file can either be just for the user who created it, a group of users, or anyone else.
 
 The two main commands that are important here are
 
@@ -299,9 +299,12 @@ As previously mentioned the ``\verb|man|'' command can be used to find out more 
 Depending on what distribution you are using, there are several tools that can be used to install or remove software on a GNU / Linux system.
 
 \begin{itemize}
-\item ``\verb|apt|'' - used on Debian and Debian derived systems e.g Ubuntu, Mint
-\item ``\verb|yum|'' - Used with SUSE
-\item ``\verb|rpm|'' - used with Red Hat, Fedora
+\item ``\verb|apt|'' - Used on Debian and Debian derived systems e.g Ubuntu, Mint
+\item ``\verb|rpm|'' - Used on Red Hat, and Red Hat derived systems e.g Fedora, SUSE
+\item ``\verb|yum|'' - Frontend for ``\verb|rpm|''
+\item ``\verb|dnf|'' - Newer frontend for ``\verb|rpm|'', used on Fedora and Red Hat
+\item ``\verb|zypper|'' - Frontend for ``\verb|rpm|'', used on SUSE
+\item ``\verb|guix|'' - Used on GNU Guix
 \end{itemize}
 
 \subsection{System Administration}
@@ -314,15 +317,15 @@ System administration is important. It helps you monitor users, monitor resource
 \item[``\texttt{htop}''] more advanced version of top
 \item[``\texttt{killall}''] kills a process e.g killall firefox-esr
 \item[``\texttt{cron}''] Run a process at a specified time
-\item[``\texttt{su}''] Drop to super user - Maintain current user path*
-\item[``\texttt{su}''] - Drop to super use,  using the root users path*
-\item[``\texttt{sudo}''] super user do,  drop to root to just run one command.
+\item[``\texttt{su}''] Drop to super user - Maintain current user \verb|$PATH|
+\item[``\texttt{su}''] - Drop to super user, using the root user's \verb|$PATH|
+\item[``\texttt{sudo}''] super user do, drop to root to just run one command.
 \item[``\texttt{reboot}''] restarts the system
 \end{itemize}
 
 
 \subsection{The Path Environment}
- In the previous subsection I mentioned the ``\verb|su|'' and ``\verb|su -|'' lets have a quick look at how the path environment compares,  we can view the current path with ``\verb|echo $PATH|''
+ In the previous subsection I mentioned the ``\verb|su|'' and ``\verb|su -|'' lets have a quick look at how the path environment compares, we can view the current path with ``\verb|echo $PATH|''
 \begin{itemize}
 \item This is the user path /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 \item This is the root path when using ``\verb|su|'' /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
@@ -340,7 +343,7 @@ The difference is mostly that using ``\verb|su -|'' you won't get file not found
 
 \subsection{Hardware related commands}
 
-On a Unix or GNU / Linux system, everything is a file,  this includes hardware, which is represented by a file. All these files are stored in the /dev folder.
+On a Unix or GNU / Linux system, everything is a file, this includes hardware, which is represented by a file. All these files are stored in the /dev folder.
 
 ``\verb|ls /dev|''
 
@@ -354,7 +357,7 @@ It can be a little more involved than this from the command shell though.
 
 The ``\verb|lsblk|'' is very useful for writing USB flash disks, to create a install disk or writing to a SD card in order to create Raspberry Pi disk.
 
-While not fully related to this the ``\verb|dmesg|'' command displays kernel messages,  so you can run prior to, and after plugging in a device to see if it has been detected.
+While not fully related to this the ``\verb|dmesg|'' command displays kernel messages, so you can run prior to, and after plugging in a device to see if it has been detected.
 
 \subsection{Restarting an unresponsive system}
 
@@ -366,7 +369,7 @@ This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusab
 
 \subsection{Videos}
 
-John Collins from \href{https://www.ezeelinux.com/}{EzeeLinux} produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
+John Collins from \href{https://www.ezeelinux.com/}{EzeeLinux} produced an excellent series of videos covering different topics relating to the BASH shell, We have only touched on this above.
 
 These are hosted on YouTube. For the purpose of this series, the links use the privacy friendly front end on Invidious:
 
@@ -384,7 +387,7 @@ These are hosted on YouTube. For the purpose of this series, the links use the p
 
 \section{Editing files}
 
-The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple. So before moving on to shell scripting, we should learn how to use this, or at least, open, save and edit files.
+The nano editor is installed on pretty much every GNU / Linux system, therefore it does make a good starting point, if we want to keep things simple. So before moving on to shell scripting, we should learn how to use this, or at least, open, save and edit files.
 
 \begin{itemize}
 \item \href{https://www.nano-editor.org/}{Nano Editor website}
@@ -411,9 +414,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 \end{verbatim}
 
-Shell scripts start with \texttt{\#!} followed by a path to the interpreter, for example \texttt{/bin/sh}.
-There is no standard location for where the interpreter is located, but \texttt{/usr/bin/env} often (but not always) exists.
-It is possible to use \texttt{env} to find an interpreter without specifying the full path, for example:
+Shell scripts start with ``\verb|#!|'' followed by a path to the interpreter, for example ``\verb|/bin/sh|''.
+There is no standard location for where the interpreter is located, but ``\verb|/usr/bin/env|'' often (but not always) exists.
+It is possible to use ``\verb|env|'' to find an interpreter without specifying the full path, for example:
 
 \begin{verbatim}
 #!/usr/bin/env bash
@@ -437,19 +440,21 @@ It is a good idea to understand networking concepts, this is especially useful i
 \item DMZ
 \end{itemize}
 
-As this is a series on bash,  then the above will give you an introduction to networking. However within bash there are several tools for networking.
+As this is a series on bash, then the above will give you an introduction to networking. However within bash there are several tools for networking.
 
 ``\verb|ping|'' sends a packet of data to the specified remote computer, this helps to check the remote computer is responding.
 
-``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host.  This will keep going until stopped with ``\verb|ctrl-d|''.  You can ping other computers on your network or on the wider internet.  Please \emph{do not flood} other computers.
+``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on, as \texttt{127.0.0.1} represents \texttt{localhost}. This will keep going until stopped with ``\verb|ctrl-d|''. You can ping other computers on your network or on the wider internet. Please \emph{do not flood} other computers.
 
 ``\verb|ip addr show|''
 
 Shows local network information for each of the systems network interfaces
 
-``\verb|hostname|'' will display the current system hostname
-``\verb|hostname -i |'' will display the localhost address
-``\verb|hostname -I |'' will display system IPv4 and IPv6 address
+\begin{itemize}
+\item ``\verb|hostname|'' will display the current system hostname
+\item ``\verb|hostname -i|'' will display the localhost address
+\item ``\verb|hostname -I|'' will display system IPv4 and IPv6 address
+\end{itemize}
 
 see ``\verb|man hostname|'' for full details
 
@@ -513,16 +518,16 @@ id\_rsa is your \textbf{Private} key and should be treated as such. id\_rsa.pub 
 
 \section{Git}
 
-Git is a tool to help manage software projects,  git is used in combination with sites such as \href{https://github.com/}{GitHub}, however as there are several alternatives such as
+Git is a tool to help manage software projects, git is used in combination with sites such as \href{https://github.com/}{GitHub}, however as there are several alternatives such as
 \href{https://codeberg.org/}{Codeberg} and others
 
-Git is clearly a very powerful tool,  learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help.
+Git is clearly a very powerful tool, learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help.
 
 
 
 \section{Self Hosting}
 
-Andrew Yu has produced a really good guide to self hosting,  this can be found at
+Andrew Yu has produced a really good guide to self hosting, this can be found at
 
 \href{https://host.andrewyu.org/}{Andrew Yu Hosting guide}
 
