@@ -31,17 +31,17 @@
 \frontmatter
 \chapter{Preface}
 
-This project has developed from a series of posts on a personal blog site run by zleap. This is a refactoring of that content.  This will initially focus on helping people learn the command line for the GNU / Linux operating system.
+This project has developed from a series of posts on a personal blog site run by zleap. This is a refactoring of that content. This will initially focus on helping people learn the command line for the GNU / Linux operating system.
 
-In turn this will hopefully complement the hosting guides produced by Andrew Yu.  As most of those assume at least some knowledge of the command line.  So it makes sense to be familiar with this.  Learning basic shell scripting, will also help you interpret and modify scripts for your own needs.
+In turn this will hopefully complement the hosting guides produced by Andrew Yu. As most of those assume at least some knowledge of the command line. So it makes sense to be familiar with this. Learning basic shell scripting, will also help you interpret and modify scripts for your own needs.
 
-This is a big subject area, I am going to start off with a series of posts to take this back to basics, starting off with learning about the command line in modern UNIX-like operating systems and associated commands using the \texttt{bash} shell.  Then move on to scripting using Bash. 
+This is a big subject area, I am going to start off with a series of posts to take this back to basics, starting off with learning about the command line in modern UNIX-like operating systems and associated commands using the \texttt{bash} shell. Then move on to scripting using Bash.
 
-Although most commands and tips will work on all UNIX-like operating systems, some less common usages and options of these utilities may be absent on some systems.  This series focuses on usage of the GNU core utilities with occasional commands from util-linux, as GNU/Linux systems are the most common Free Software setups.  Users of other UNIX-like operating systems may consult their system manual for specifics into a command.
+Although most commands and tips will work on all UNIX-like operating systems, some less common usages and options of these utilities may be absent on some systems. This series focuses on usage of the GNU core utilities with occasional commands from util-linux, as GNU/Linux systems are the most common Free Software setups. Users of other UNIX-like operating systems may consult their system manual for specifics into a command.
 
-This guide is intended for beginners, as some sort of a semi-gentle introduction.  However, people with experience already may also find this guide helpful, and as such this guide will cover some 'more advanced' topics.  In order to make it possible for many types of readers to read this guide effectively, the  sign
+This guide is intended for beginners, as some sort of a semi-gentle introduction. However, people with experience already may also find this guide helpful, and as such this guide will cover some 'more advanced' topics. In order to make it possible for many types of readers to read this guide effectively, the  sign
 $$\vbox{\hbox{\dbend}\vskip 11pt}$$
-is put at the beginning of some paragraphs to indicate a "hard level".  If you are new to GNU/Linux systems and it's your first few reads, it is advised to skip these parts.  (Yes, this is the ``{dangerous bend}'' sign that Donald Knuth uses.)
+is put at the beginning of some paragraphs to indicate a "hard level". If you are new to GNU/Linux systems and it's your first few reads, it is advised to skip these parts. (Yes, this is the ``{dangerous bend}'' sign that Donald Knuth uses.)
 
 \tableofcontents
 
@@ -54,52 +54,52 @@ This chapter needs to be rewritten.
 Firstly, we need access to a GNU/Linux system, there are numerous options here:
 
 \begin{itemize}
-    \item Install GNU/Linux on your computer;
-    \item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as:
-    \begin{itemize}
-        \item BeagleBone boards (https://beagleboard.org)
-        \item Raspberry Pis (https://www.raspberrypi.org/)
-        \item Orange Pi (http://www.orangepi.org/)
-    \end{itemize}
-    \item Install GNU/Linux in a virtual machine;
-    \begin{itemize}
-        \item Virtual Box (https://www.virtualbox.org/)
-    \end{itemize}
-    \item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
-    \item Use a service from \href{https://www.vern.cc}{Vern.cc}
-    \item Use a browser-based emulator such as \texttt{https://bellard.org/jslinux/}
-    \item \textit{et cetera}.
-    \end{itemize}
+\item Install GNU/Linux on your computer;
+\item Purchase (or otherwise obtain) computers that use GNU/Linux "by default" or has mainline support thereof, such as:
+  \begin{itemize}
+  \item BeagleBone boards (https://beagleboard.org)
+  \item Raspberry Pis (https://www.raspberrypi.org/)
+  \item Orange Pi (http://www.orangepi.org/)
+  \end{itemize}
+\item Install GNU/Linux in a virtual machine;
+  \begin{itemize}
+  \item Virtual Box (https://www.virtualbox.org/)
+  \end{itemize}
+\item Use a public-access GNU/Linux system, such as \texttt{tilde.team};
+\item Use a service from \href{https://www.vern.cc}{Vern.cc}
+\item Use a browser-based emulator such as \texttt{https://bellard.org/jslinux/}
+\item \textit{et cetera}.
+\end{itemize}
 
 \chapter{Getting support with this series}
 
-You can get some help via IRC (Internet Relay Chat) -- myself (zleap), Ron (noisytoot), and AndrewYu (Andrew) all hang out on IRC in the channel \libera{tuxiversity}.  There are several ways to connect to this via a client.  It is probably easier, at least at first, to use a web based interface.
+You can get some help via IRC (Internet Relay Chat) -- myself (zleap), Ron (noisytoot), and AndrewYu (Andrew) all hang out on IRC in the channel \libera{tuxiversity}. There are several ways to connect to this via a client. It is probably easier, at least at first, to use a web based interface.
 
-You could also join or help setup a local group such as 
+You could also join or help setup a local group such as
 
 \begin{itemize}
-\item \href{https://www.codeclub.org.uk}{CodeClub} 
+\item \href{https://www.codeclub.org.uk}{CodeClub}
 \item \href{https://coderdojo.com/}{CoderDojo}
 \end{itemize}
 
-The previous section also has links to communities that can also provide help and support.  
+The previous section also has links to communities that can also provide help and support.
 
 
 \chapter{Shell Basics}
 
-We will be mainly working in the \texttt{bash} shell in this series.  GNU \texttt{bash} is the most common shell in modern GNU/Linux systems, which is the primary focus of this series.
+We will be mainly working in the \texttt{bash} shell in this series. GNU \texttt{bash} is the most common shell in modern GNU/Linux systems, which is the primary focus of this series.
 
-A \textit{shell} is, in general, the program that you interact with your computer with.  When used in a more specific context it refers to a command-line shell that users type commands to.  The shell usually does some interpretation on the user input and passes these options launching a program, or they modify the shell's internal environment.
+A \textit{shell} is, in general, the program that you interact with your computer with. When used in a more specific context it refers to a command-line shell that users type commands to. The shell usually does some interpretation on the user input and passes these options launching a program, or they modify the shell's internal environment.
 
-Many users, mostly novice ones, are afraid of command-line interfaces as the stereotypical UNIX command-line is very terse.  In rare fields this is still true, but things are generally better than in the old days.  For example, visual text editors are widespread among users of bitmap displays and terse teletype-oriented ones like \texttt{ed} are fading away.
+Many users, mostly novice ones, are afraid of command-line interfaces as the stereotypical UNIX command-line is very terse. In rare fields this is still true, but things are generally better than in the old days. For example, visual text editors are widespread among users of bitmap displays and terse teletype-oriented ones like \texttt{ed} are fading away.
 
-Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly.  It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting.  In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
+Some may ask why the command-line is in consideration at all as we have graphical interfaces that are much more user-friendly. It boils down to the fact that graphical interfaces are usually harder to extend for more features and for specific uses, and even in these cases where you would extend a GUI, knowledge of programming is still necessary, which would be similar to shell scripting. In most cases simple scripts would be easier to write anyway; besides, using the shell day-to-day gives you confidence when you need to write batch operations---and believe me, it made my life much easier.
 
-Now, go ahead and open up a shell.  On graphical systems, look for a program called ``Terminal'' or similar.  If you see something similar to ``\verb|user@host:~\$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
+Now, go ahead and open up a shell. On graphical systems, look for a program called ``Terminal'' or similar. If you see something similar to ``\verb|user@host:~\$|'', ``\verb|[user@host ~] $|'', \textit{et cetera}, you're good to go!
 
 \section{What is GNU}
 
-As we are talking about GNU Bash, it makes sense to quickly explain what GNU is.   GNU stands for GNU's Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License. 
+As we are talking about GNU Bash, it makes sense to quickly explain what GNU is. GNU stands for GNU's Not Unix,  GNU tools are the tools that came with the original Unix operating system, rewritten and released under the GNU General Public License.
 
 https://www.gnu.org/
 
@@ -116,35 +116,35 @@ When you see something like ``\verb|user@host:~\$|'' or ``\verb|[user@host ~] $|
 
 The default prompt on most systems consists of four parts:
 \begin{enumerate}
-	\item Your username;
-	\item Your computer's hostname;
-	\item Your current working directory;
-	\item An actual prompt, which is ``\verb|$|'' for normal users and ``\verb|#|'' for root, the superuser.
+\item Your username;
+\item Your computer's hostname;
+\item Your current working directory;
+\item An actual prompt, which is ``\verb|$|'' for normal users and ``\verb|#|'' for root, the superuser.
 \end{enumerate}
 
-\danger{The ``\verb|#|'' prompt actually signifies a UID of \verb|0|.  If you have a setup where a user that is not ``\verb|root|'' has a UID of \verb|0| (and in this case such a user also has escalated privileges, because it's the UID rather than the username that matters, though most programs are not designed to work like this and can cause issues), its default prompt would also be ``\verb|#|''.}
+\danger{The ``\verb|#|'' prompt actually signifies a UID of \verb|0|. If you have a setup where a user that is not ``\verb|root|'' has a UID of \verb|0| (and in this case such a user also has escalated privileges, because it's the UID rather than the username that matters, though most programs are not designed to work like this and can cause issues), its default prompt would also be ``\verb|#|''.}
 
 Just know that such a prompt means that ``the last command (if any) has finished and the shell is waiting for a command''.
 
 \section{Reading the Manual}
 
-The system manual is a good resource for almost any command.  To access the system manual, you may use the \verb|man| command.
+The system manual is a good resource for almost any command. To access the system manual, you may use the \verb|man| command.
 
 Now try it!  Type \verb|man| and press the Enter/Return key on your keyboard.
 \begin{verbatim}
 user@host:~$ man
 What manual page do you want?
 For example, try 'man man'.
-user@host:~$ 
+user@host:~$
 \end{verbatim}
 
-It looks like that the computer is telling you that \verb|man| doesn't know what manual page to look up \ldots You should think of some keyword to tell \verb|man| to look up as \verb|man| allows you to view specific pages in the system manual.  Usually, the entries' names are the name of the program, system call names, standard library function names, file formats (specifically filenames), etc.  They are divided into a few sections, which you should read more about with \verb|man man|, i.e. asking the system manual about the manual utility itself.  It is wise use the system manual for the command in interest before asking for support---because many times the manual solves your problems, and people don't like repeating a documented solution all the time, hence the ``Read the F* Manual'' ``meme'' spreading around.
+It looks like that the computer is telling you that \verb|man| doesn't know what manual page to look up \ldots You should think of some keyword to tell \verb|man| to look up as \verb|man| allows you to view specific pages in the system manual. Usually, the entries' names are the name of the program, system call names, standard library function names, file formats (specifically filenames), etc. They are divided into a few sections, which you should read more about with \verb|man man|, i.e. asking the system manual about the manual utility itself. It is wise use the system manual for the command in interest before asking for support---because many times the manual solves your problems, and people don't like repeating a documented solution all the time, hence the ``Read the F* Manual'' ``meme'' spreading around.
 
-When you encounter something that you want to do but you're not sure which command to use, the \verb|apropos| command is useful.  \verb|apropos| searches the manual database's page names and summary lines for your search term.  For example, if you're looking for a utility to print a file (which is usually \verb|lpr| or \verb|lp|, by the way), you could run \verb|apropos print|, and you'll be presented with a list of related manual entries (though do note how the term ``print'' is used for ``output text onto the screen'' besides ``tell the printer to put ink (or powder) onto paper'' for historical reasons).  Since you're looking for a \emph{command} to print, you'd generally want to look in section~1 of the manual (those marked with ``\verb|(1)|'').
+When you encounter something that you want to do but you're not sure which command to use, the \verb|apropos| command is useful. \verb|apropos| searches the manual database's page names and summary lines for your search term. For example, if you're looking for a utility to print a file (which is usually \verb|lpr| or \verb|lp|, by the way), you could run \verb|apropos print|, and you'll be presented with a list of related manual entries (though do note how the term ``print'' is used for ``output text onto the screen'' besides ``tell the printer to put ink (or powder) onto paper'' for historical reasons). Since you're looking for a \emph{command} to print, you'd generally want to look in section~1 of the manual (those marked with ``\verb|(1)|'').
 
-Sometimes, you are not looking for the command of an external program, but rather a shell builtin, such as ``\verb|cd|''.  In this case, you should use the ``\verb|help|'' command instead of ``\verb|man|''.
+Sometimes, you are not looking for the command of an external program, but rather a shell builtin, such as ``\verb|cd|''. In this case, you should use the ``\verb|help|'' command instead of ``\verb|man|''.
 
-\danger{You may have encountered the ``\verb|info|'' command as a system manual command.  That is part of the GNU \TeX info manual system, not the traditional UNIX manual system.  If you are looking for the manual of GNU utilities, such as ``\verb|bash|'', the \TeX info manuals will be more comprehensive than the manpages, and will generally include more examples and friendly information than what manpages will tell you.  However, not many programs outside of GNU utilities have \TeX info manuals.}
+\danger{You may have encountered the ``\verb|info|'' command as a system manual command. That is part of the GNU \TeX info manual system, not the traditional UNIX manual system. If you are looking for the manual of GNU utilities, such as ``\verb|bash|'', the \TeX info manuals will be more comprehensive than the manpages, and will generally include more examples and friendly information than what manpages will tell you. However, not many programs outside of GNU utilities have \TeX info manuals.}
 
 \section{Useful general commands}
 ``\verb|clear|'' clears the screen
@@ -156,13 +156,13 @@ Sometimes, you are not looking for the command of an external program, but rathe
 
 \section{File Operations}
 
-Your UNIX-like operating system has a directory structure, and files are the centre of UNIX-like operating systems.  Therefore, learning how to navigate the filesystem and handle files is important.
+Your UNIX-like operating system has a directory structure, and files are the centre of UNIX-like operating systems. Therefore, learning how to navigate the filesystem and handle files is important.
 
 \subsection{Working Directory}
 
-In any process, there is a \textit{current working directory}.  Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory.  At your shell prompt, you can use the ``\verb|pwd|'' ( present working directory ) command to know your current working directory.  This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
+In any process, there is a \textit{current working directory}. Any filenames that do not begin with a ``\verb|/|'', i.e. those that are not absolute paths, are relative to the process's current working directory. At your shell prompt, you can use the ``\verb|pwd|'' ( present working directory ) command to know your current working directory. This might not seem useful at first as your shell prompt already lists your current working directory, but in the future it will be useful in scripts, where you want to do something like ``save the current location to a variable and return to it sometime later''.
 
-You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''.  That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
+You would see that your shell prompt says that ``\verb|~|'' is your working directory, while ``\verb|pwd|'' says something like ``\verb|/home/user/|''. That's because ``\verb|~|'' is an abbreviation to your user's \textit{home directory}, which is usually where you land when you login and is the place a user stores their personal files.
 
 **
 
@@ -172,37 +172,37 @@ this section needs a creative commons diagram of the GNU / Linux directory struc
 
 \subsection{Listing Files}
 
-To list the files and directories of a given directory, use ``\texttt{ls \ph{directory}}''.  This lists all the items inside \ph{directory}.  If \ph{directory} is unspecified, it lists the current working directory by default.
+To list the files and directories of a given directory, use ``\texttt{ls \ph{directory}}''. This lists all the items inside \ph{directory}. If \ph{directory} is unspecified, it lists the current working directory by default.
 
-By default, \verb|ls| does not list hidden files, i.e. files whose filename beings with a dot (``\verb|.|'').  If you pass the ``\verb|-a|`` option to it, hidden files are now listed.  Note that (``\verb|.|'') and (``\verb|..|'') as independent filenames mean ``current directory'' and ``parent directory'' respectively.
+By default, \verb|ls| does not list hidden files, i.e. files whose filename beings with a dot (``\verb|.|''). If you pass the ``\verb|-a|`` option to it, hidden files are now listed. Note that (``\verb|.|'') and (``\verb|..|'') as independent filenames mean ``current directory'' and ``parent directory'' respectively.
 
-By default, \verb|ls| only lists the filenames of the files.  You may want more information.  To get more information, you may pass the ``\verb|-l|'' option, which lets \verb|ls| display extra information like filesystem permissions, file sizes (default unit is bytes, use ``\verb|-h|'' for adaptive units), modification dates, \textit{et cetera}.
+By default, \verb|ls| only lists the filenames of the files. You may want more information. To get more information, you may pass the ``\verb|-l|'' option, which lets \verb|ls| display extra information like filesystem permissions, file sizes (default unit is bytes, use ``\verb|-h|'' for adaptive units), modification dates, \textit{et cetera}.
 
 \subsection{Reading Files}
 
-You may use the ``\verb|cat|'' command to output the data in a specified filename onto ``\verb|cat|'''s standard output (usually the terminal).  If multiple filenames are specified as arguments, the files are concatenated.
+You may use the ``\verb|cat|'' command to output the data in a specified filename onto ``\verb|cat|'''s standard output (usually the terminal). If multiple filenames are specified as arguments, the files are concatenated.
 
-While the ``\verb|cat|'' command can be used to read files, if the file is long then the output of cat will just scroll the contents up the screen.  The ``\verb|less|'' command displays the file content, but allows user interaction to display the file a page at a time.
+While the ``\verb|cat|'' command can be used to read files, if the file is long then the output of cat will just scroll the contents up the screen. The ``\verb|less|'' command displays the file content, but allows user interaction to display the file a page at a time.
 
 If you are using ``\verb|less|'' you can press ``\verb|q|'' to quit and return to the bash prompt.
 
-You can also use the ``\verb|more|'' command to view a file a page at a time, as with less, press q to quit. 
+You can also use the ``\verb|more|'' command to view a file a page at a time, as with less, press q to quit.
 
 The `\verb|diff|'' command can be used to display any text that is different between two files. This is useful if you can't remember which is a later version for example.
 
 You can also use the ``\verb|grep|'' to search through a file for specific text,
-``\verb|grep pear fruit.txt|'' will search for the text pear in the file fruit.txt.   
+``\verb|grep pear fruit.txt|'' will search for the text pear in the file fruit.txt.
 
-``\verb|grep|'' stands for GNU Regular Expression Parser and is very powerful so may be discussed later in a video. 
+``\verb|grep|'' stands for GNU Regular Expression Parser and is very powerful so may be discussed later in a video.
 
 The ``\verb|wc|'' command stands for word count, and as you would expect gives the number of words in a document.
 
 \begin{verbatim}
-~/test$ wc fruit.txt 
+~/test$ wc fruit.txt
  5  5 31 fruit.txt
 \end{verbatim}
 
-In this case,  5 lines, 5 words and 31 characters. 
+In this case,  5 lines, 5 words and 31 characters.
 
 
 
@@ -212,31 +212,31 @@ To create a file, you can use the ``\verb|touch|'', in this case ``\verb|touch f
 
 ``\verb|touch|'' will also allow you to create multiple files, for example ``\verb|touch file.txt file2.txt file3.txt|''
 
-To work with longer files, you can use editors such as ``\verb|nano|'' can also be used so ``\verb|nano file.txt|'' will either open an existing file or create a new file with that file name.   You can then edit the file contents.
+To work with longer files, you can use editors such as ``\verb|nano|'' can also be used so ``\verb|nano file.txt|'' will either open an existing file or create a new file with that file name. You can then edit the file contents.
 
-You can also create files by directing the output of one command in to another.  For example, we have previously discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''.  Note that this truncates (i.e. clear) filelist.txt before redirecting the stream.  If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
+You can also create files by directing the output of one command in to another. For example, we have previously discussed the ``\verb|ls|'' command, so using ``\verb|ls > filelist.txt|'' will direct the output of ``\verb|ls|'' in to a file called ``\verb|filelist.txt|''. Note that this truncates (i.e. clear) filelist.txt before redirecting the stream. If you want to append instead, use ``\verb|>>|'' instead of ``\verb|>|''.
 
-\danger{It is a bad idea to parse the output of \verb|ls| in scripts.  \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames.  Evaluating the output is potentially a security risk, too.  Batch operations should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
+\danger{It is a bad idea to parse the output of \verb|ls| in scripts. \verb|ls| uses special output formats (dollar symbol notations) and has other caveats for strange filenames. Evaluating the output is potentially a security risk, too. Batch operations should either use shell wildcard or the ``\verb|find|'' command for better robustness.}
 
 \subsection{File manipulation}
 
-Bash allows you to move, copy and rename files.   
+Bash allows you to move, copy and rename files.
 
 ``\verb|cp|'' copy a file
 ``\verb|mv|'' move a file or this will also rename a file
-``\verb|rename|'' This allows you to rename a file or set of files.  Very useful for batch renaming for example:-
-``\verb|rename 's/DSCF/newname/' *|'' will take a set of files in this case starting with DSCF and replace that with newname.  If you have lots of files on your camera DSCF is an example of a prefix at the start of each photo filename.   If you go to the beach you may want to rename that to beach for example, so that set of photos can be identified later.   It just renames that portion of the file, so the numerical part remains intact.
+``\verb|rename|'' This allows you to rename a file or set of files. Very useful for batch renaming for example:-
+``\verb|rename 's/DSCF/newname/' *|'' will take a set of files in this case starting with DSCF and replace that with newname. If you have lots of files on your camera DSCF is an example of a prefix at the start of each photo filename. If you go to the beach you may want to rename that to beach for example, so that set of photos can be identified later. It just renames that portion of the file, so the numerical part remains intact.
 ``\verb|rm|'' remove or delete a file
 ``\verb|mkdir|'' create a directory
 ``\verb|rmdir|'' remove or delete a directory
 
 \subsection{File Permissions}
 
-File permissions are an important security feature in any Unix type environment.  Files can either be Read, Write or Executable (e.g a shell script).  Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.
+File permissions are an important security feature in any Unix type environment. Files can either be Read, Write or Executable (e.g a shell script). Depending on who you want to be able to access these files,  a file can either be just for the user who created it, a group of users, or anyone else.
 
 The two main commands that are important here are
 
-``\verb|chmod|'' - Changes the file permission, to determine what can be done with it. 
+``\verb|chmod|'' - Changes the file permission, to determine what can be done with it.
 ``\verb|chown|'' - Changes the file owner
 ``\verb|chgrp|'' - Changes group owner
 
@@ -252,9 +252,9 @@ The two main commands that are important here are
 
 \subsection{Finding Documents and Files}
 
-The ``\verb|find|'' command will allow you to locate a file or set of files on you system.  Basic usage is ``\verb|find -n "file.txt" |''
+The ``\verb|find|'' command will allow you to locate a file or set of files on you system. Basic usage is ``\verb|find -n "file.txt" |''
 
-If you want to find where a particular command is on your system you can use ``\verb|which|''.  So an example of this could be ``\verb|which bash|'' the command will then return ``\verb|/usr/bin/bash|''
+If you want to find where a particular command is on your system you can use ``\verb|which|''. So an example of this could be ``\verb|which bash|'' the command will then return ``\verb|/usr/bin/bash|''
 
 \subsection{User accounts and passwords}
 
@@ -272,17 +272,17 @@ It is sometimes necessary to add a new user to your system, or remove a user, yo
 \begin{verbatim}
 $ passwd
 Changing password for user1.
-Current password: 
-New password: 
-Retype new password: 
+Current password:
+New password:
+Retype new password:
 passwd: password updated successfully
 \end{verbatim}
 
-As previously mentioned the ``\verb|man|'' command can be used to find out more information about each of these. 
+As previously mentioned the ``\verb|man|'' command can be used to find out more information about each of these.
 
 \subsection{Managing Software}
 
-Depending on what distribution you are using, there are several tools that can be used to install or remove software on a GNU / Linux system.  
+Depending on what distribution you are using, there are several tools that can be used to install or remove software on a GNU / Linux system.
 
 \begin{itemize}
 \item ``\verb|apt|'' - used on Debian and Debian derived systems e.g Ubuntu, Mint
@@ -292,7 +292,7 @@ Depending on what distribution you are using, there are several tools that can b
 
 \subsection{System Administration}
 
-System administration is important.  It helps you monitor users, monitor resources etc.
+System administration is important. It helps you monitor users, monitor resources etc.
 \begin{itemize}
 \item[``\texttt{ps}''] lists running processes on your system
 \item[``\texttt{top}''] displays processes and allows them to be killed, or change their process priority
@@ -301,7 +301,7 @@ System administration is important.  It helps you monitor users, monitor resourc
 \item[``\texttt{killall}''] kills a process e.g killall firefox-esr
 \item[``\texttt{cron}''] Run a process at a specified time
 \item[``\texttt{su}''] Drop to super user - Maintain current user path*
-\item[``\texttt{su}''] - Drop to super use,  using the root users path* 
+\item[``\texttt{su}''] - Drop to super use,  using the root users path*
 \item[``\texttt{sudo}''] super user do,  drop to root to just run one command.
 \item[``\texttt{reboot}''] restarts the system
 \end{itemize}
@@ -313,10 +313,10 @@ System administration is important.  It helps you monitor users, monitor resourc
 \item This is the user path /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 \item This is the root path when using ``\verb|su|'' /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 \item This is the root path when using ``\verb|su -|'' /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-\item 
+\item
 \end{itemize}
 
-The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user. 
+The difference is mostly that using ``\verb|su -|'' you won't get file not found when trying to run a command that is reserved for the root user.
 
 \subsection{Environment variables}
 
@@ -334,14 +334,14 @@ On a Unix or GNU / Linux system, everything is a file,  this includes hardware, 
 ``\verb|lspci|'' - lists PCI devices
 ``\verb|lsblk|'' - lists block devices (e.g hard disks and removable media)
 
-These commands are useful to figure out what is on your system, and where it is.  Removable media can be mounted on to a folder, with a command such as ``\verb|mount /dev/usb /media/flash |''  then when you run ``\verb|cd /media/flash|'' you see the files on the device.
+These commands are useful to figure out what is on your system, and where it is. Removable media can be mounted on to a folder, with a command such as ``\verb|mount /dev/usb /media/flash |''  then when you run ``\verb|cd /media/flash|'' you see the files on the device.
 
-It can be a little more involved than this from the command shell though. 
+It can be a little more involved than this from the command shell though.
 
 The ``\verb|lsblk|'' is very useful for writing USB flash disks, to create a install disk or writing to a SD card in order to create Raspberry Pi disk.
 
-While not fully related to this the ``\verb|dmesg|'' command displays kernel messages,  so you can run prior to, and after plugging in a device to see if it has been detected. 
- 
+While not fully related to this the ``\verb|dmesg|'' command displays kernel messages,  so you can run prior to, and after plugging in a device to see if it has been detected.
+
 \subsection{Restarting an unresponsive system}
 
 This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusable-linux-box/}
@@ -354,7 +354,7 @@ This may also be useful - \url{http://tuxdiary.com/2012/06/05/reiub-reset-unusab
 
 John Collins from ( https://www.ezeelinux.com/ ) produced an excellent series of videos covering different topics relating to the BASH shell,  We have only touched on this above.
 
-These are hosted on YouTube.  For the purpose of this series, the links use the privacy friendly front end on Invidious:-
+These are hosted on YouTube. For the purpose of this series, the links use the privacy friendly front end on Invidious:-
 
 \begin{itemize}
 \item \href{https://invidious.snopyta.org/watch?v=eH8Z9zeywq0}{Access and Navigation}
@@ -370,25 +370,24 @@ These are hosted on YouTube.  For the purpose of this series, the links use the 
 
 \section{Editing files}
 
-The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple.  So before moving on to shell scripting, we should learn how to use this, or at least, open, save and edit files.
+The nano editor is installed on pretty much every GNU / Linux system,  therefore it does make a good starting point, if we want to keep things simple. So before moving on to shell scripting, we should learn how to use this, or at least, open, save and edit files.
 
 \begin{itemize}
 \item \href{https://www.nano-editor.org/}{Nano Editor website}
 \item \href{https://www.youtube.com/watch?v=cLyUZAabf40}{Youtube video - beginners guide to nano}
-\item \href{https://www.nano-editor.org/dist/latest/cheatsheet.html}{Nano Cheat sheet} 
-
+\item \href{https://www.nano-editor.org/dist/latest/cheatsheet.html}{Nano Cheat sheet}
 \end{itemize}
 
 \section{Shell Scripting}
 
-Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier.  A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
+Once you have become more used to the command line interface, a shell script can make running the more labour intensive tasks much easier. A shell script is a list of commands within a text file, which will can be run manually or perhaps run at a set time on your system.
 
 \subsection{Getting Started}
 
 
 \subsection{Checking who you are}
 
-Depending on the script being run and its function, you may want to check the user is running the script as root.  
+Depending on the script being run and its function, you may want to check the user is running the script as root.
 
 \begin{verbatim}
 if [ "$EUID" -ne 0 ]
@@ -398,7 +397,7 @@ exit
   else
 \end{verbatim}
 
-In general a shell script starts with 
+In general a shell script starts with
 
 \begin{verbatim}
 #!/usr/bin/env
@@ -408,7 +407,7 @@ In general a shell script starts with
 
 \section{Networking}
 
-It is a good idea to understand networking concepts, this is especially useful if you want to host your own web services. 
+It is a good idea to understand networking concepts, this is especially useful if you want to host your own web services.
 
 \href{https://www.youtube.com/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - YouTube}
 \href{https://invidious.snopyta.org/watch?v=\_IOZ8\_cPgu8}{Networking Beginners - Invidious}
@@ -423,11 +422,11 @@ It is a good idea to understand networking concepts, this is especially useful i
 \item DMZ
 \end{itemize}
 
-As this is a series on bash,  then the above will give you an introduction to networking.  However within bash there are several tools for networking.
+As this is a series on bash,  then the above will give you an introduction to networking. However within bash there are several tools for networking.
 
 ``\verb|ping|'' sends a packet of data to the specified remote computer, this helps to check the remote computer is responding.
 
-``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host.  This will keep going until stopped with ``\verb|ctrl-d|''.  You can ping other computers on your network or on the wider internet.  Please \textbf{do not flood} other computers.
+``\verb|ping 127.0.0.1|'' will therefore ping the computer you are on,  as 127.0.0.1 represents local host. This will keep going until stopped with ``\verb|ctrl-d|''. You can ping other computers on your network or on the wider internet. Please \textbf{do not flood} other computers.
 
 ``\verb|ip addr show|''
 
@@ -449,13 +448,13 @@ random text to fill in for now
 
 \section{OpenSSH}
 
-OpenSSH is a part of a suite of tools that allow secure remote access to systems.  Open Secure Shell.
+OpenSSH is a part of a suite of tools that allow secure remote access to systems. Open Secure Shell.
 
 \href{https://www.openssh.com/}{OpenSSH server}
 
 Install with ``\verb|apt install openssh-server|''
 
-SSH can be used with ``\verb|ssh-keygen|'' to generate a ssh keypair, which can be used to login to a remote system without a password.    This is a good option to maintain security. 
+SSH can be used with ``\verb|ssh-keygen|'' to generate a ssh keypair, which can be used to login to a remote system without a password. This is a good option to maintain security.
 
 To generate a key pair with ``\verb|ssh-keygen|''
 
@@ -464,10 +463,10 @@ To generate a key pair with ``\verb|ssh-keygen|''
 
 testuser@Desktop:~$ ssh-keygen
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/testuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/testuser/.ssh/id_rsa):
 Created directory '/home/testuser/.ssh'.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
 Your identification has been saved in /home/testuser/.ssh/id_rsa
 Your public key has been saved in /home/testuser/.ssh/id_rsa.pub
 The key fingerprint is:
@@ -487,7 +486,7 @@ The key's randomart image is:
 
 \end{verbatim}
 
-I have just accepted the defaults by pressing enter.  for both the file name and setting and confirming a passphrase. 
+I have just accepted the defaults by pressing enter. for both the file name and setting and confirming a passphrase.
 
 If you now type ``\verb|cd .ssh|'' you will find two files.
 
@@ -495,16 +494,16 @@ If you now type ``\verb|cd .ssh|'' you will find two files.
 id_rsa  id_rsa.pub
 \end{verbatim}
 
-id\_rsa is your \textbf{Private} key and should be treated as such.  id\_rsa.pub is your \textbf{Public} key and can be shared.
+id\_rsa is your \textbf{Private} key and should be treated as such. id\_rsa.pub is your \textbf{Public} key and can be shared.
 
 \section{Git}
 
 Git is a tool to help manage software projects,  git is used in combination with sites such as \href{https://github.com/}{GitHub}, however as there are several alternatives such as
 \href{https://codeberg.org/}{Codeberg} and others
 
-Git is clearly a very powerful tool,  learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help. 
+Git is clearly a very powerful tool,  learning git is an important skill, but it can be complex and confusing at times, so it is really useful to be able to ask for help.
 
- 
+
 
 \section{Self Hosting}
 
@@ -524,11 +523,11 @@ This covers :
 
 \href{https://networkverge.com/common-ports/}{Common network ports}
 
-There are also other guides to set up other types of server, or at least links to.    
+There are also other guides to set up other types of server, or at least links to.
 
 \section{Gaming}
 
-Gaming may not be something that seems directly related to this.  You may be interested in running a game server, for friends or to take part in events such as: 
+Gaming may not be something that seems directly related to this. You may be interested in running a game server, for friends or to take part in events such as:
 
 \href{https://libregaming.org/}{Libre gaming night}
 
