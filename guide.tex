@@ -426,6 +426,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 \end{verbatim}
 
+\subsection{A basic script}
+
 Shell scripts start with ``\verb|#!|'' followed by a path to the interpreter, for example ``\verb|/bin/sh|''.
 There is no standard location for where the interpreter is located, but ``\verb|/usr/bin/env|'' often (but not always) exists.
 It is possible to use ``\verb|env|'' to find an interpreter without specifying the full path, for example:
@@ -437,6 +439,8 @@ As shell scripts can save typing lots of command then the following will display
 echo $USER
 echo $HOSTNAME
 \end{verbatim}
+
+\subsection{Environment variables}
 
 Which isn't very friendly in some ways so, using
 \begin{verbatim}
@@ -450,7 +454,19 @@ You can find more about environment variables at \href{https://www.howtogeek.com
 
 This can be very useful witin scripts as you can then run a test to see if a particular user is logged in and display a personal message for example.  
 
+\subsection{.bashrc file}
+
 The ``\verb|.bashrc|'' file runs when you login or stat a new terminal session.  Any instructions contained within are run.   So you could put echo "Hello" a the end,  and that will be displayed.   The innards of this file are beyond the scope of this series, however once you are familar with shell scripts a little more,  you will understand what is going on. 
+
+\subsection{Alias a command}
+
+So within bash,  you can run various commands,  each of these has a default behaviour.  The ``\verb|ls|'' command just lists files, with no details, but what happens if you want to change this you can use the alias command within a script.  In this case the following appears in my ``\verb|.bashrc|'' file. It may be commented out with ``\verb|#|''.  
+
+In this case ``\verb|ls|'' works normally, but typing ``\verb|ll|'' runs ``\verb|ls -l|'' therefore displaying the files in long format with permission and ownership details. 
+
+\begin{verbatim}
+alias ll='ls -l'
+\end{verbatim}
 
 \chapter{Next Steps}
 
