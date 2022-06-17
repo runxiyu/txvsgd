@@ -330,7 +330,7 @@ System administration is important. It helps you monitor users, monitor resource
 \item[``\texttt{killall}''] kills a process e.g killall firefox-esr
 \item[``\texttt{cron}''] Run a process at a specified time
 \item[``\texttt{su}''] Drop to super user - Maintain current user \verb|$PATH|
-\item[``\texttt{su-l }''] Drop to super user, using the root user's \verb|$PATH|
+\item[``\texttt{su -l}''] Drop to super user, using the root user's \verb|$PATH|
 \item[``\texttt{sudo}''] super user do, drop to root to just run one command.
 \item[``\texttt{reboot}''] restarts the system
 \end{itemize}
@@ -432,7 +432,7 @@ Shell scripts start with ``\verb|#!|'' followed by a path to the interpreter, fo
 There is no standard location for where the interpreter is located, but ``\verb|/usr/bin/env|'' often (but not always) exists.
 It is possible to use ``\verb|env|'' to find an interpreter without specifying the full path, for example:
 
-As shell scripts can save typing lots of command then the following will display the username and path
+As shell scripts can save typing lots of command then the following will display the username and hostname
 
 \begin{verbatim}
 #!/usr/bin/env bash
@@ -446,23 +446,23 @@ Which isn't very friendly in some ways so, using
 \begin{verbatim}
 echo "hello you are, $USER at $HOSTNAME"
 \end{verbatim}
-Is probably a little more friendly. 
+Is probably a little more friendly.
 
-The ``\verb|printenv|'' command will display currently set environment variables
+The ``\verb|printenv|'' command will display currently set environment variables.
 
-You can find more about environment variables at \href{https://www.howtogeek.com/668503/how-to-set-environment-variables-in-bash-on-linux/}{How_to geek - environment variables.}
+You can find more about environment variables at \href{https://www.howtogeek.com/668503/how-to-set-environment-variables-in-bash-on-linux/}{How-To Geek - environment variables}.
 
-This can be very useful witin scripts as you can then run a test to see if a particular user is logged in and display a personal message for example.  
+This can be very useful witin scripts as you can then run a test to see if a particular user is logged in and display a personal message for example.
 
 \subsection{.bashrc file}
 
-The ``\verb|.bashrc|'' file runs when you login or stat a new terminal session.  Any instructions contained within are run.   So you could put echo "Hello" a the end,  and that will be displayed.   The innards of this file are beyond the scope of this series, however once you are familar with shell scripts a little more,  you will understand what is going on. 
+The ``\verb|.bashrc|'' file runs when you login or stat a new terminal session. Any instructions contained within are run. So you could put echo "Hello" a the end, and that will be displayed. The innards of this file are beyond the scope of this series, however once you are familar with shell scripts a little more, you will understand what is going on.
 
 \subsection{Alias a command}
 
-So within bash,  you can run various commands,  each of these has a default behaviour.  The ``\verb|ls|'' command just lists files, with no details, but what happens if you want to change this you can use the alias command within a script.  In this case the following appears in my ``\verb|.bashrc|'' file. It may be commented out with ``\verb|#|''.  
+So within bash, you can run various commands, each of these has a default behaviour. The ``\verb|ls|'' command just lists files, with no details, but what happens if you want to change this you can use the alias command within a script.  In this case the following appears in my ``\verb|.bashrc|'' file. It may be commented out with ``\verb|#|''.
 
-In this case ``\verb|ls|'' works normally, but typing ``\verb|ll|'' runs ``\verb|ls -l|'' therefore displaying the files in long format with permission and ownership details. 
+In this case ``\verb|ls|'' works normally, but typing ``\verb|ll|'' runs ``\verb|ls -l|'' therefore displaying the files in long format with permission and ownership details.
 
 \begin{verbatim}
 alias ll='ls -l'
@@ -609,9 +609,9 @@ There is a related IRC Channel on Libera Chat -- \libera{libregamenight}
 
 \chapter{Hacking and Hackers}
 
-To avoid any confusion  ``\verb|hacker|'' and ``\verb|hacking|'' are described in the original meaning. Hacking is creating something useful or clever from code. A hacker is a person who enjoys the use of programmable systems.  So in a similar contect ``\verb|ethichal hacking|'' and ``\verb|ethichal hacker|'' would fit in here. 
+To avoid any confusion, ``\verb|hacker|'' and ``\verb|hacking|'' are described in the original meaning. Hacking is creating something useful or clever from code. A hacker is a person who enjoys the use of programmable systems. So in a similar contect ``\verb|ethical hacking|'' and ``\verb|ethical hacker|'' would fit in here.
 
-The term ``\verb|cracker|'' is taken within the original meaning and would be a person undertaking illegal activities, such as breaking in to computer systems. This definition makes more sense as you have 'safe crackers' or back in World War 2, the enigma code was 'cracked', however the people that did that are considered hackers. 
+The term ``\verb|cracker|'' is taken within the original meaning and would be a person undertaking illegal activities, such as breaking in to computer systems. This definition makes more sense as you have 'safe crackers' or back in World War 2, the enigma code was 'cracked', however the people that did that are considered hackers.
 
 
 
