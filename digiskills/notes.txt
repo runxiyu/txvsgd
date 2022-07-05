@@ -1,0 +1,78 @@
+TQ UK
+
+TQUK  Level 2 IT User Skills
+
+This course is split into five manageable units:
+
+    Unit 1: Using IT to increase productivity
+
+Using free software tools to help us undertake task
+
+    Unit 2: IT software fundamentals
+
+To include what free software is, what it means etc
+
+
+
+    Unit 3: IT security for users
+
+Good passwords
+2fa
+ssh keys and key pairs
+
+
+
+    Unit 4: Presentation software
+
+
+Libre office calc
+LaTeX beamer
+Cryptpad 
+
+    Unit 5: Spreadsheet software
+
+NCFE Level 1 Essentials Digital Skills ----------------
+
+This course is split into five manageable units:
+
+    Unit 1: Using devices and handling information
+
+This skills area covers a basic understanding of hardware, software, operating systems and commonly used applications. Students will develop fundamental digital skills by learning how to manage and store information, and identify and solve simple technical issues.
+
+    Unit 2: Creating and editing
+
+Students will first learn to create and edit documents before moving on to creating and editing other types of digital media, such as images, audio files and videos. Eventually, students will be taught to use applications to edit, enhance and format different types of information for a range of purposes and audiences.
+
+    Unit 3: Communicating
+
+The communication skills area requires students to demonstrate an understanding of electronic communications, such as email and video calls. Students will gain awareness and be able to use digital communication for a range of contexts and audiences.
+
+
+    Unit 4: Transacting
+
+This skills area involves the ability to complete and submit an online form, comply with digital verification checks, and purchase an item or service online. Eventually, students will learn to compare products against other available online options and manage their transactional account settings.
+
+
+    Unit 5: Being safe and responsible online
+
+The final skills area is to understand the importance of digital wellbeing, students will learn about being responsible online. This will involve privacy and data protection, conducting best practice online behaviour, backing up data, and understanding the psychological health risks of online activity.
+
+
+https://www.gatewayqualifications.org.uk/qualification-area/digital-qualifications/essential-digital-skills/
+
+
+https://codeberg.org/DigitalSkills/DigitalSkills
+
+------------
+
+NCFE Entry 3 Essential Digital Skills.
+
+This course is split into five manageable units:
+
+    Unit 1: Using devices and handling information
+    Unit 2: Finding and evaluating information
+    Unit 3: Managing and storing information
+    Unit 4: Identifying and solving technical problems
+    Unit 5: Developing digital skills
+
+
