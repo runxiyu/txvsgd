@@ -8,4 +8,5 @@
 *.docx
 *.odt
 /guide/
-*.out
+*.out*
+*.*~
